@@ -80,7 +80,7 @@ const MapChart = ({
                             setTooltipDescription(
                               `${nationalPark.description}`
                             );
-                            setTooltipPostCode(`${nationalPark.postalCode}`);
+                            setTooltipPostCode(`${nationalPark.postcode}`);
                             setTooltipContact(`${nationalPark.contactPhone}`);
                           }}
                           onMouseLeave={() => {
