@@ -54,7 +54,7 @@ const StatesData = () => {
             city: physicalAddress ? physicalAddress.city : "",
             state: physicalAddress ? physicalAddress.stateCode : "",
             contactPhone: phone ? phone.phoneNumber : "",
-
+            parkcode: park.parkCode,
             coordinates: [
               parseFloat(park.longitude),
               parseFloat(park.latitude),

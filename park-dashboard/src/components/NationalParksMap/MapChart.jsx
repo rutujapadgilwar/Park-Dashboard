@@ -8,7 +8,7 @@ import {
   Annotation,
 } from "react-simple-maps";
 import allStates from "./allStates.json";
-import { redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
@@ -59,47 +59,49 @@ const MapChart = ({
                 park.nationalParks.map(
                   (nationalPark, index) =>
                     nationalPark.coordinates.length === 2 && (
-                      <Marker
-                        key={index}
-                        coordinates={[
-                          nationalPark.coordinates[0],
-                          nationalPark.coordinates[1],
-                        ]}
+                      <Link
+                        to={{
+                          pathname: `/parkInfoPage/${nationalPark.parkcode}`,
+                        }}
                       >
-                        <g
-                          fill="none"
-                          stroke="#008000"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          transform="translate(-12, -24)"
-                          onMouseEnter={() => {
-                            setTooltipName(`${nationalPark.name}`);
-                            setTooltipAddress(`${nationalPark.address}`);
-                            setTooltipCity(`${nationalPark.city}`);
-                            setTooltipDescription(
-                              `${nationalPark.description}`
-                            );
-                            setTooltipPostCode(`${nationalPark.postcode}`);
-                            setTooltipContact(`${nationalPark.contactPhone}`);
-                          }}
-                          onMouseLeave={() => {
-                            setTooltipName("");
-                            setTooltipAddress("");
-                            setTooltipCity("");
-                            setTooltipDescription("");
-                            setTooltipContact("");
-                            setTooltipPostCode("");
-                          }}
-                          // Take user to park page (functionality remaining)
-                          onClick={() => {
-                            return redirect("/parkInfoPage")
-                          }}
+                        <Marker
+                          key={index}
+                          coordinates={[
+                            nationalPark.coordinates[0],
+                            nationalPark.coordinates[1],
+                          ]}
                         >
-                          <circle cx="12" cy="10" r="3" />
-                          <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-                        </g>
-                      </Marker>
+                          <g
+                            fill="none"
+                            stroke="#008000"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            transform="translate(-12, -24)"
+                            onMouseEnter={() => {
+                              setTooltipName(`${nationalPark.name}`);
+                              setTooltipAddress(`${nationalPark.address}`);
+                              setTooltipCity(`${nationalPark.city}`);
+                              setTooltipDescription(
+                                `${nationalPark.description}`
+                              );
+                              setTooltipPostCode(`${nationalPark.postcode}`);
+                              setTooltipContact(`${nationalPark.contactPhone}`);
+                            }}
+                            onMouseLeave={() => {
+                              setTooltipName("");
+                              setTooltipAddress("");
+                              setTooltipCity("");
+                              setTooltipDescription("");
+                              setTooltipContact("");
+                              setTooltipPostCode("");
+                            }}
+                          >
+                            <circle cx="12" cy="10" r="3" />
+                            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                          </g>
+                        </Marker>
+                      </Link>
                     )
                 )
               )}
