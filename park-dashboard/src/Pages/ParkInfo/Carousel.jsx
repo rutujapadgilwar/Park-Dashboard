@@ -5,20 +5,26 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function PhotoCarousel(props) {
   const [images, setImages] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchImages();
   }, []);
 
-  const fetchImages = () => {
-    axios
-      .get(
+  const fetchImages = async () => {
+    try {
+      const response = await axios.get(
         `https://developer.nps.gov/api/v1/parks?API_Key=OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7&parkCode=${props.parkCode}`
-      )
-      .then((res) => {
-        setImages(res.data.data[0].images);
-      });
+      );
+      setImages(response.data.data[0].images);
+    } catch (error) {
+      setError(error);
+    }
   };
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   const imageCarousel = images.map((image) => {
     return (
