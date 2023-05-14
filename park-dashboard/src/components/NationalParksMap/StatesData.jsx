@@ -9,19 +9,27 @@ const API_KEY = "OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7";
 const StatesData = () => {
   const [parks, setParks] = useState([]);
   const [stateWiseNationalParks, setStateWiseNationalParks] = useState([]);
-  useEffect(() => {
-    const fetchStates = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/parks`, {
-          params: {
-            api_key: API_KEY,
-            limit: 500,
-          },
-        });
 
-        setParks(response.data.data);
-      } catch (error) {
-        console.error(error);
+  useEffect(() => {
+    const cacheKey = "parks-data";
+    const fetchStates = async () => {
+      const cacheData = localStorage.getItem(cacheKey);
+      if (cacheData) {
+        setParks(JSON.parse(cacheData));
+      } else {
+        try {
+          const response = await axios.get(`${BASE_URL}/parks`, {
+            params: {
+              api_key: API_KEY,
+              limit: 500,
+            },
+          });
+
+          setParks(response.data.data);
+          localStorage.setItem(cacheKey, JSON.stringify(response.data.data));
+        } catch (error) {
+          console.error(error);
+        }
       }
     };
     fetchStates();
