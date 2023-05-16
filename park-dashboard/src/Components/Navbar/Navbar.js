@@ -5,8 +5,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import HomeIcon from "@material-ui/icons/Home";
+import { ThemeProvider } from "@material-ui/core/styles";
+import { createTheme } from '@material-ui/core/styles';
 import ParkIcon from '@mui/icons-material/Park';
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navbarLink: {
     height: "100%",
-    font: "bold",
+    font: "boldest",
     display: "block",
     color: theme.palette.common.white,
     textDecoration: "none",
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "1px 0px 0px 0px",
   },
 }));
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "#FF000",
@@ -61,14 +61,11 @@ const Navbar = () => {
         <AppBar className={classes.header}>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
+            <Link to="/" className={classes.navbarLink}>              
               Park Dashboard
               <ParkIcon className={classes.parklogo} />
+              </Link>  
             </Typography>
-            <Button color="inherit" className={classes.navbarButton}>
-              <Link to="/" className={classes.navbarLink}>
-                <HomeIcon className={classes.logo} />
-              </Link>
-            </Button>
             <Button color="inherit" className={classes.navbarButton}>
               <Link to="/GenericCharts" className={classes.navbarLink}>
                 Generic Charts
