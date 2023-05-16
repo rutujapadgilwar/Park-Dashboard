@@ -28,7 +28,7 @@ function PhotoCarousel(props) {
 
   const imageCarousel = images.map((image) => {
     return (
-      <Carousel.Item interval={1500}>
+      <Carousel.Item key={image.title} interval={1500}>
         <img
           className="d-block w-100"
           src={image.url}

@@ -34,8 +34,24 @@ function Alerts(props) {
   };
 
   const alertMessages = alerts.map((alert) => {
+    return {
+      id: alert.id,
+      severity: getSeverityLevel(alert.category),
+      title: alert.title,
+      description: alert.description,
+    };
+  });
+
+  alertMessages.sort((a, b) => {
+    const severityOrder = ["error", "warning", "info", "success"];
     return (
-      <Alert severity={getSeverityLevel(alert.category)}>
+      severityOrder.indexOf(a.severity) - severityOrder.indexOf(b.severity)
+    );
+  });
+
+  const renderedAlerts = alertMessages.map((alert) => {
+    return (
+      <Alert key={alert.id} severity={alert.severity}>
         <AlertTitle>
           <strong>{alert.title}</strong>
         </AlertTitle>
@@ -48,7 +64,7 @@ function Alerts(props) {
     <div>
       <h1>Alerts</h1>
       <Stack sx={{ width: "100%" }} className="scroll-y" spacing={2}>
-        {alertMessages}
+        {renderedAlerts}
       </Stack>
     </div>
   );
