@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     backgroundColor: "black",
     color: "White",
+    height: "70px",
     boxShadow: "1px 0px 0px 0px",
   },
 }));
