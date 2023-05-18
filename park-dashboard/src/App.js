@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/GenericCharts" element={<GenericChart />} />
@@ -17,7 +17,11 @@ function App() {
           path="/NationalParkCharts"
           element={<NationalParkCharts />}
         />
-        <Route exact path="/parkInfoPage/:item" element={<ParkInfoPage />} />
+        <Route
+          exact
+          path="/parkInfoPage/:parkCode"
+          element={<ParkInfoPage />}
+        />
       </Routes>
     </BrowserRouter>
   );
