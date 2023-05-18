@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1.5),
   },
 }));
-
 function ParkActivities(item) {
   const classes = useStyles();
   const parkData = LoadParkData(item);
@@ -25,9 +24,9 @@ function ParkActivities(item) {
   const ParkActivities = park ? park.activities : null;
   if (!ParkActivities) {
     console.log("Null");
-    return null; // Return null if there are no activities
+    return null; 
   }
-  const columns = Math.ceil(2); // Calculate number of columns
+  const columns = Math.ceil(2);
   return (
     <div sx={{ display: "flex", flexDirection: "column" }}>
       <Grid container spacing={5}>
@@ -37,7 +36,6 @@ function ParkActivities(item) {
             item
             sx={{ display: "flex", justifyContent: "center", gap: 2 }}
           >
-            {/* Set the number of columns based on the screen size */}
             {ParkActivities.slice(i * 10, (i + 1) * 10).map((activity) => (
               <Paper key={activity.name}
                 elevation={10}
