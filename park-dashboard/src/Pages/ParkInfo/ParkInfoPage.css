@@ -1,0 +1,27 @@
+.container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left-col {
+  flex: 1;
+  height: 65vh;
+  overflow-y: scroll;
+  float: right;
+}
+
+.center-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
