@@ -34,11 +34,12 @@ const MapChart = ({
   setTooltipContact,
 }) => {
   return (
+    <div style = {{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}>
     <ComposableMap
       data-tip=""
       className="map-container"
       projection="geoAlbersUsa"
-      style={{ width: "100%", height: "600px" }}
+      style={{ width: "100%", height: "600px"}}
     >
       <Geographies geography={geoUrl}>
         {({ geographies }) => (
@@ -135,6 +136,7 @@ const MapChart = ({
         )}
       </Geographies>
     </ComposableMap>
+    </div>
   );
 };
 
