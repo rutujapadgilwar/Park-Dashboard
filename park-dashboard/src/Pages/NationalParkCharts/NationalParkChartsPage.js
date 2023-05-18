@@ -1,9 +1,5 @@
 import React from "react";
-const NationalParkChartPage = () =>{
-    return(
-        <div>
-            
-        </div>
-    )
-}
+const NationalParkChartPage = () => {
+  return <div></div>;
+};
 export default NationalParkChartPage;
