@@ -1,10 +1,10 @@
 import React from "react";
-const HomePage = () =>{
-    return(
-        <div>
-            <h1> WelCome To Park Dashboard</h1>
-            
-        </div>
-    )
-}
+import StatesData from "../../components/NationalParksMap/StatesData";
+const HomePage = () => {
+  return (
+    <div>
+      <StatesData />
+    </div>
+  );
+};
 export default HomePage;
