@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MapChart from "./MapChart";
 import ReactTooltip from "react-tooltip";
-import { Card } from "react-bootstrap";
 
 const TooltipComponent = ({ stateWiseNationalParks }) => {
   const [name, setName] = useState("");
@@ -32,17 +31,33 @@ const TooltipComponent = ({ stateWiseNationalParks }) => {
           aftershow={() => setTimeout(ReactTooltip.hide, 3000)}
         >
           {
-            <Card className="tooltip p-5" style={{ width: "24rem" }}>
-              <Card.Body>
-                <Card.Title>Name: {name}</Card.Title>
-                <Card.Subtitle>City: {city}</Card.Subtitle>
-                <Card.Subtitle>
+            <div
+              className="card"
+              style={{
+                width: "20rem",
+                backgroundColor: "transparent",
+                color: "white",
+              }}
+            >
+              <div className="card-body">
+                <h1 style={{ fontSize: "16px" }} className="card-title">
+                  Name: {name}
+                </h1>
+                <h2 style={{ fontSize: "15px" }} className="card-title">
+                  City: {city}
+                </h2>
+                <h3 style={{ fontSize: "14px" }} className="card-text">
                   Address: {address} - {city} {postCode}
-                </Card.Subtitle>
-                <Card.Text>{description}</Card.Text>
-                <Card.Subtitle>Contact Us: {contact}</Card.Subtitle>
-              </Card.Body>
-            </Card>
+                </h3>
+                <p
+                  style={{ fontSize: "14px", textAlign: "left" }}
+                  className="card-text my-3"
+                >
+                  {description}
+                </p>
+                <h6 className="card-text">Contact Us: {contact}</h6>
+              </div>
+            </div>
           }
         </ReactTooltip>
       )}
