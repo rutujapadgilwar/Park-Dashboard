@@ -25,8 +25,8 @@ function ParkActivities(item) {
   if (!ParkActivities) {
     return (
       <div sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "10xwvh" }}>
-        <Box p={5} border={1} borderRadius={4}>
-          <h1>Sorry, No avtivities</h1>
+        <Box p={5}>
+          <h4>Sorry, No avtivities</h4>
         </Box>
       </div>
     );
