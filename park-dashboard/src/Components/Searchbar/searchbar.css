@@ -1,0 +1,31 @@
+.searchbar-comp {
+    margin-top: 6rem;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.css-13cymwt-control, .css-t3ipsp-control {
+    border: 0.2rem solid #008000 !important;
+    border-radius: 20px !important;
+    box-shadow: none !important;
+}
+
+.css-1xc3v61-indicatorContainer {
+    color: #008000 !important;
+}
+
+.links {
+    color: black;
+    text-decoration: none;
+}
+.cc-1nmdiq5-option:hover {
+    background-color: #DAF7A6 !important;
+}
+
+@media (max-width: 768px) {
+    .searchbar-comp {
+        width: 80%;
+    }
+  }
