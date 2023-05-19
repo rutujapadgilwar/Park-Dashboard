@@ -23,8 +23,13 @@ function ParkActivities(item) {
   const park = parkData.find((p) => p.parkCode === parkCode);
   const ParkActivities = park ? park.activities : null;
   if (!ParkActivities) {
-    console.log("Null");
-    return null; 
+    return (
+      <div sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "10xwvh" }}>
+        <Box p={5} border={1} borderRadius={4}>
+          <h1>Sorry, No avtivities</h1>
+        </Box>
+      </div>
+    );
   }
   const columns = Math.ceil(2);
   return (
