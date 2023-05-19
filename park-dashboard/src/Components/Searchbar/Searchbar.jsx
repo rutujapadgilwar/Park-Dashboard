@@ -38,14 +38,9 @@ const Searchbar = () => {
   }, []);
 
   const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
+    option: (baseStyle, state) => ({
+      ...baseStyle,
       backgroundColor: state.isFocused ? "#008000" : "white",
-      // color: state.isFocused ? "white" : "black",
-      // "&:hover": {
-      //   backgroundColor: "brown",
-      //   color: "white",
-      // },
     }),
   };
 
