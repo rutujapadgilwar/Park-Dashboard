@@ -37,6 +37,18 @@ const Searchbar = () => {
     fetchNames();
   }, []);
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#008000" : "white",
+      // color: state.isFocused ? "white" : "black",
+      // "&:hover": {
+      //   backgroundColor: "brown",
+      //   color: "white",
+      // },
+    }),
+  };
+
   const options = parkName.map((park) => ({
     value: park.fullName,
     label: (
@@ -56,6 +68,7 @@ const Searchbar = () => {
         options={options}
         placeholder="Search for National Park"
         id="park-name" 
+        styles={customStyles}
       />
 
     </div>
