@@ -25,7 +25,9 @@ import {
   GiFishing,
   GiFishEscape,
   GiBoatFishing,
-  GiInnerSelf
+  GiInnerSelf,
+  GiCanoe,
+  GiPineTree
 } from "react-icons/gi";
 import { FaMountain, FaDog, FaSnowman, FaSkiing, FaBus, FaCampground } from "react-icons/fa";
 import {
@@ -228,8 +230,10 @@ const getActivityIcon = (activityName) => {
         return <GiInnerSelf />;
     case "Mountain Biking":
         return <BikeScooterIcon />;
+    case "Canoeing":
+        return <GiCanoe />;
     default:
-      return null;
+      return <GiPineTree />;;
   }
 };
 export default getActivityIcon;
