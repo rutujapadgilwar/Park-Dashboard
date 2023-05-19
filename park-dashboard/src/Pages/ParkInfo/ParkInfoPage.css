@@ -2,7 +2,7 @@
   margin-top: 16px;
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 70vh;
 }
 
 .left-col {
@@ -24,4 +24,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.parkActivities{
+  flex: 1;
+  height: 65vh;
+  overflow-y: scroll;
+  float: left;
+}
+.ActivityHeading{
+  flex: 1;
+  margin-left: 50px;
+  float: left;
+  margin-bottom: 10px;
 }
