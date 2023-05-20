@@ -33,6 +33,7 @@ function ActivitiesVsNP() {
           const parks = activity.parks.filter(
             (park) => park.designation === "National Park"
           );
+          if (parks.length < 15) return;
           activitiesObject[activity.name] = parks;
         });
         console.log(activitiesObject);
@@ -53,12 +54,12 @@ function ActivitiesVsNP() {
           return parks.length;
         }),
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 99, 132, 0.8)",
+          "rgba(54, 162, 235, 0.8)",
+          "rgba(255, 206, 86, 0.8)",
+          "rgba(75, 192, 192, 0.8)",
+          "rgba(153, 102, 255, 0.8)",
+          "rgba(255, 159, 64, 0.8)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
