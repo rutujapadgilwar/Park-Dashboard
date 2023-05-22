@@ -2,10 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.css";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  padding: {
+    paddingTop: "70px",
+  },
+}));
 
 function PhotoCarousel(props) {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
+  const classes = useStyles();
 
   useEffect(() => {
     fetchImages();
@@ -28,9 +36,13 @@ function PhotoCarousel(props) {
 
   const imageCarousel = images.map((image) => {
     return (
-      <Carousel.Item key={image.title} interval={1500}>
+      <Carousel.Item
+        key={image.title}
+        interval={1500}
+        className={classes.padding}
+      >
         <img
-          className="d-block w-100"
+          className="d-block w-100 "
           src={image.url}
           alt={image.altText}
           style={{ objectFit: "cover", height: "50vh" }}
