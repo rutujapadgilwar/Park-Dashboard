@@ -1,6 +1,6 @@
 import React from "react";
-import Searchbar from "../../components/Searchbar/Searchbar";
-import StatesData from "../../components/NationalParksMap/StatesData";
+import Searchbar from "../../Components/Searchbar/Searchbar";
+import StatesData from "../../Components/NationalParksMap/StatesData";
 const HomePage = () => {
   return (
     <div>
