@@ -3,8 +3,9 @@ import Select from "react-select";
 import { Link } from "react-router-dom";
 import "./searchbar.css";
 
-const Searchbar = ({ stateWiseNationalParks }) => {
-  const options = stateWiseNationalParks
+const Searchbar = ({ parks }) => {
+  const options = parks
+    .filter((park) => park.designation === "National Park")
     .map((park) => ({
       value: park.fullName,
       label: (
