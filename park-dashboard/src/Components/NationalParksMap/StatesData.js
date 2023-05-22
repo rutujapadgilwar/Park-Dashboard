@@ -77,7 +77,7 @@ export const StatesData = () => {
 
   return (
     <div>
-      <Searchbar class="py-5" parks={parks} />
+      <Searchbar class="py-5" stateWiseNationalParks={stateWiseNationalParks} />
       <TooltipComponent stateWiseNationalParks={stateWiseNationalParks} />
     </div>
   );
