@@ -35,8 +35,7 @@ const MapChart = ({
   setTooltipContact,
 }) => {
   return (
-    <div className="map"
-    >
+    <div className="map">
       <ComposableMap
         data-tip=""
         className="map-container"

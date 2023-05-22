@@ -24,7 +24,14 @@ function ParkActivities(item) {
   const ParkActivities = park ? park.activities : null;
   if (!ParkActivities) {
     return (
-      <div sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "10xwvh" }}>
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "10xwvh",
+        }}
+      >
         <Box p={5}>
           <h4>Sorry, No avtivities</h4>
         </Box>
@@ -42,7 +49,8 @@ function ParkActivities(item) {
             sx={{ display: "flex", justifyContent: "center", gap: 2 }}
           >
             {ParkActivities.slice(i * 10, (i + 1) * 10).map((activity) => (
-              <Paper key={activity.name}
+              <Paper
+                key={activity.name}
                 elevation={10}
                 className={classes.customBorderRadius}
               >
@@ -50,7 +58,7 @@ function ParkActivities(item) {
                   <List>
                     <ListItem>
                       <ListItemAvatar>
-                      {getActivityIcon(activity.name)}
+                        {getActivityIcon(activity.name)}
                       </ListItemAvatar>
                       <ListItemText primary={activity.name} />
                     </ListItem>

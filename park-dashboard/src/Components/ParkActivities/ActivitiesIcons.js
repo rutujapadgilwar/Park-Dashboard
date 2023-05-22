@@ -11,7 +11,7 @@ import CarCampingIcon from "@mui/icons-material/LocalParking";
 import ScubaDivingIcon from "@mui/icons-material/ScubaDiving";
 import CompassAndGPSIcon from "@mui/icons-material/Navigation";
 import KayakingIcon from "@mui/icons-material/Kayaking";
-import BikeScooterIcon from '@mui/icons-material/BikeScooter';
+import BikeScooterIcon from "@mui/icons-material/BikeScooter";
 import {
   GiMountainCave,
   GiGolfFlag,
@@ -27,9 +27,16 @@ import {
   GiBoatFishing,
   GiInnerSelf,
   GiCanoe,
-  GiPineTree
+  GiPineTree,
 } from "react-icons/gi";
-import { FaMountain, FaDog, FaSnowman, FaSkiing, FaBus, FaCampground } from "react-icons/fa";
+import {
+  FaMountain,
+  FaDog,
+  FaSnowman,
+  FaSkiing,
+  FaBus,
+  FaCampground,
+} from "react-icons/fa";
 import {
   MdSnowmobile,
   MdSurfing,
@@ -93,7 +100,7 @@ const getActivityIcon = (activityName) => {
     case "Boating":
       return <BoatingIcon />;
     case "Camping":
-       return <FaCampground />;
+      return <FaCampground />;
     case "Backcountry Camping":
       return <BackcountryCampingIcon />;
     case "Car or Front Country Camping":
@@ -225,15 +232,15 @@ const getActivityIcon = (activityName) => {
     case "Freshwater Fishing":
       return <GiBoatFishing />;
     case "Bus/Shuttle Guided Tour":
-        return <FaBus />;
+      return <FaBus />;
     case "Self-Guided Tours - Auto":
-        return <GiInnerSelf />;
+      return <GiInnerSelf />;
     case "Mountain Biking":
-        return <BikeScooterIcon />;
+      return <BikeScooterIcon />;
     case "Canoeing":
-        return <GiCanoe />;
+      return <GiCanoe />;
     default:
-      return <GiPineTree />;;
+      return <GiPineTree />;
   }
 };
 export default getActivityIcon;
