@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { LoadParkData } from "../../LoadParkData";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -7,35 +8,14 @@ import {
   Legend,
 } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
-import axios from "axios";
-
-const BASE_URL = "https://developer.nps.gov/api/v1";
-const API_KEY = "OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
-const DesignationPolarArea = (props) => {
-  const [parks, setParks] = useState([]);
-  useEffect(() => {
-    const fetchParks = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/parks`, {
-          params: {
-            api_key: API_KEY,
-            limit: 500,
-          },
-        });
-
-        setParks(response.data.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchParks();
-  }, []);
-
+const DesignationPolarArea = (item) => {
+  const parkData = LoadParkData(item);
+  
   //Fetch all the park designations
-  const parkDesignations = parks.map((park) => park.designation);
+  const parkDesignations = parkData.map((park) => park.designation);
 
   //Unique park designations
   const uniqueDesignations = [...new Set(parkDesignations)];
