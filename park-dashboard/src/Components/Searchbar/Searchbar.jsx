@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "react-select";
-import { Link } from "react-router-dom";
 import "./searchbar.css";
 
 const Searchbar = ({ parks }) => {
@@ -8,12 +7,14 @@ const Searchbar = ({ parks }) => {
     .filter((park) => park.designation === "National Park")
     .map((park) => ({
       value: park.fullName,
-      label: (
-        <Link className="links" to={`/parkInfoPage/${park.parkCode}`}>
-          {park.fullName}
-        </Link>
-      ),
+      label: park.fullName,
+      link:`/parkInfoPage/${park.parkCode}`
     }));
+
+    const handleChange = (selectedOption) => {
+      const { link } = selectedOption;
+      window.location.href=link;
+    }
 
   const customStyles = {
     option: (baseStyle, state) => ({
@@ -30,6 +31,7 @@ const Searchbar = ({ parks }) => {
         placeholder="Search for National Park"
         id="park-name"
         styles={customStyles}
+        onChange={handleChange}
       />
     </div>
   );
