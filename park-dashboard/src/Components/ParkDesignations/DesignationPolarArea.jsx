@@ -11,9 +11,9 @@ import { PolarArea } from "react-chartjs-2";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
-const DesignationPolarArea = (item) => {
-  const parkData = LoadParkData(item);
-  
+const DesignationPolarArea = (parks) => {
+  const parkData = LoadParkData(parks);
+
   //Fetch all the park designations
   const parkDesignations = parkData.map((park) => park.designation);
 
