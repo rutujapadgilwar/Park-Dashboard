@@ -6,8 +6,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { createTheme } from '@material-ui/core/styles';
-import ParkIcon from '@mui/icons-material/Park';
+import { createTheme } from "@material-ui/core/styles";
+import ParkIcon from "@mui/icons-material/Park";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     backgroundColor: "black",
     color: "White",
+    height: "70px",
     boxShadow: "1px 0px 0px 0px",
   },
 }));
@@ -61,10 +62,10 @@ const Navbar = () => {
         <AppBar className={classes.header}>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-            <Link to="/" className={classes.navbarLink}>              
-              Park Dashboard
-              <ParkIcon className={classes.parklogo} />
-              </Link>  
+              <Link to="/" className={classes.navbarLink}>
+                Park Dashboard
+                <ParkIcon className={classes.parklogo} />
+              </Link>
             </Typography>
             <Button color="inherit" className={classes.navbarButton}>
               <Link to="/GenericCharts" className={classes.navbarLink}>

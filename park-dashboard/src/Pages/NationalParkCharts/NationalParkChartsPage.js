@@ -1,5 +1,7 @@
 import React from "react";
+import ActivitiesVsNP from "../../Components/NationalParkActivities/ActivitiesVsNP";
+
 const NationalParkChartPage = () => {
-  return <div></div>;
+  return <ActivitiesVsNP />;
 };
 export default NationalParkChartPage;
