@@ -2,11 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import allStates from "./allStates.json";
 import TooltipComponent from "./TooltipComponent";
+import Searchbar from "../Searchbar/Searchbar";
 
 const BASE_URL = "https://developer.nps.gov/api/v1";
 const API_KEY = "OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7";
 
-const StatesData = () => {
+export const StatesData = () => {
   const [parks, setParks] = useState([]);
   const [stateWiseNationalParks, setStateWiseNationalParks] = useState([]);
 
@@ -26,6 +27,7 @@ const StatesData = () => {
           });
 
           setParks(response.data.data);
+
           localStorage.setItem(cacheKey, JSON.stringify(response.data.data));
         } catch (error) {
           console.error(error);
@@ -75,6 +77,7 @@ const StatesData = () => {
 
   return (
     <div>
+      <Searchbar class="py-5" parks={parks} />
       <TooltipComponent stateWiseNationalParks={stateWiseNationalParks} />
     </div>
   );
