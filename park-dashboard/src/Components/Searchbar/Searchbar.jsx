@@ -8,13 +8,13 @@ const Searchbar = ({ parks }) => {
     .map((park) => ({
       value: park.fullName,
       label: park.fullName,
-      link:`/parkInfoPage/${park.parkCode}`
+      link: `/parkInfoPage/${park.parkCode}`,
     }));
 
-    const handleChange = (selectedOption) => {
-      const { link } = selectedOption;
-      window.location.href=link;
-    }
+  const handleChange = (selectedOption) => {
+    const { link } = selectedOption;
+    window.location.href = link;
+  };
 
   const customStyles = {
     option: (baseStyle, state) => ({
