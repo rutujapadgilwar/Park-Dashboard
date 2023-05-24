@@ -1,0 +1,139 @@
+.weatherForecast {
+  display: grid;
+  grid-auto-flow: column;
+  width: 80vh;
+  flex-wrap: wrap; /* Prevent wrapping */
+  overflow-x: scroll; /* Enable horizontal scrolling */
+}
+
+.weatherDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.weatherBox {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+  background-color: #e2f5fc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.date {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.temperatureLabel {
+  font-weight: bold;
+}
+
+.humidity,
+.windSpeed {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.humidityLabel,
+.windSpeedLabel {
+  font-weight: bold;
+}
+
+.weatherIcon {
+  color: #000000; /* Set the color of the weather icon */
+  font-size: 32px; /* Set the size of the weather icon */
+}
+
+.weatherBox.clear-sky {
+  background-color: #fceeb5; /* Light yellow */
+}
+
+.weatherBox.few-clouds {
+  background-color: #d9e8f9; /* Light blue */
+}
+
+.weatherBox.light-rain {
+  background-color: #b8d6ff; /* Light blue */
+}
+
+.weatherBox.scattered-clouds {
+  background-color: #c2d9e8; /* Light blue */
+}
+
+.weatherBox.broken-clouds {
+  background-color: #c4d6e3; /* Light blue */
+}
+.weatherBox.overcast-clouds {
+  background-color: #c3c3c3;
+}
+.weatherBox.rain {
+  background-color: #82b0eb; /* Blue */
+}
+.weatherBox.moderate-rain {
+  background-color: #c0dafe;
+}
+.weatherBox.thunderstorm {
+  background-color: #635c8a; /* Purple */
+}
+
+.weatherBox.snow {
+  background-color: #eaf3ff; /* Light blue */
+}
+
+.weatherBox.mist {
+  background-color: #cdddf1; /* Light blue */
+}
+
+.weatherBox.smoke {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.haze {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.dust {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.fog {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.sand {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.ash {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.squall {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.weatherBox.tornado {
+  background-color: #c3c3c3; /* Light gray */
+}
+
+.lineChart {
+  width: 70%;
+  height: 250px;
+  align-self: center;
+  justify-content: center;
+  margin-left: 60px;
+}
+.weatherLineChart {
+  align-items: center;
+}

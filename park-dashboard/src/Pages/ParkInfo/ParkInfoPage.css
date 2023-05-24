@@ -3,36 +3,32 @@
   display: flex;
   flex-direction: row;
   height: 70vh;
+  margin-bottom: 70px;
 }
 
 .left-col {
-  flex: 1;
-  height: 65vh;
+  height: 70vh;
+  width: 70vh;
   overflow-y: scroll;
   float: right;
 }
 
-.center-col {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .right-col {
   flex: 1;
-  display: flex;
+  margin-left: 70px;
+  height: 70vh;
   justify-content: center;
   align-items: center;
 }
 
-.parkActivities{
+.parkActivities {
   flex: 1;
   height: 65vh;
   overflow-y: scroll;
   float: left;
 }
-.ActivityHeading{
+.ActivityHeading {
+  padding-top: 30px;
   flex: 1;
   margin-left: 50px;
   float: left;

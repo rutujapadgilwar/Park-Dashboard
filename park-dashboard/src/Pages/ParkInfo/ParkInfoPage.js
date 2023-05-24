@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./ParkInfoPage.css";
 import ParkActivities from "../../Components/ParkActivities/ParkActivities";
 import ParkNameHeading from "../../Components/ParkNameHeading/ParkNameHeading";
+import WeatherForecast from "../../Components/WeatherForecast/WeatherForecast";
 const ParkInfoPage = () => {
   let { parkCode } = useParams();
   return (
@@ -15,8 +16,10 @@ const ParkInfoPage = () => {
         <div className="left-col">
           <Alerts parkCode={parkCode}></Alerts>
         </div>
-        <div className="center-col"></div>
-        <div className="right-col"> </div>
+        <div className="right-col">
+          {" "}
+          <WeatherForecast parkCode={parkCode}></WeatherForecast>
+        </div>
       </div>
       <div className="ActivityHeading">
         <h2>To do Activities</h2>
