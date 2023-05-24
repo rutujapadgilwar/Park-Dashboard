@@ -126,6 +126,9 @@
 .weatherBox.tornado {
   background-color: #c3c3c3; /* Light gray */
 }
+.weatherBox{
+  background-color: white;
+}
 
 .lineChart {
   width: 70%;
