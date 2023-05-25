@@ -100,7 +100,7 @@ function WeatherForecast(item) {
     });
     return groupedData;
   };
-  
+
   const calculateDailyData = (groupedData) => {
     const dailyData = Object.entries(groupedData).map(([date, values]) => {
       return {
@@ -113,7 +113,6 @@ function WeatherForecast(item) {
     });
     return dailyData;
   };
-  
 
   const data = {
     labels: dailyForecast.map((weatherData) => weatherData.date),
@@ -157,11 +156,13 @@ function WeatherForecast(item) {
       fontSize: 16,
     },
     legend: {
-      position: "bottom",
+      display: true,
+      position: 'top',
+      align: 'end',
       labels: {
-        fontSize: 14,
+        fontSize: 4,
+        padding: 50,
       },
-      padding: 20,
     },
     scales: {
       x: {
@@ -177,13 +178,14 @@ function WeatherForecast(item) {
         },
       },
       y: {
+        suggestedMax:Math.max(...dailyForecast.map((weatherData) => weatherData.maxTemperature)) + 2,
         grid: {
           color: "rgba(0, 0, 0, 0.1)",
         },
         ticks: {
           color: "black",
           fontSize: 14,
-          padding: 15,
+          padding: 20,
         },
       },
     },
