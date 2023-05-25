@@ -100,21 +100,20 @@ function WeatherForecast(item) {
     });
     return groupedData;
   };
-
+  
   const calculateDailyData = (groupedData) => {
-    const dailyData = [];
-    for (const date in groupedData) {
-      const dailyItem = {
-        date: date,
-        minTemperature: Math.min(...groupedData[date].minTemperature),
-        maxTemperature: Math.max(...groupedData[date].maxTemperature),
-        description: groupedData[date].description,
-        icon: groupedData[date].icon,
+    const dailyData = Object.entries(groupedData).map(([date, values]) => {
+      return {
+        date,
+        minTemperature: Math.min(...values.minTemperature),
+        maxTemperature: Math.max(...values.maxTemperature),
+        description: values.description,
+        icon: values.icon,
       };
-      dailyData.push(dailyItem);
-    }
+    });
     return dailyData;
   };
+  
 
   const data = {
     labels: dailyForecast.map((weatherData) => weatherData.date),
