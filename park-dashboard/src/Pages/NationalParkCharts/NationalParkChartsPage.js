@@ -1,5 +1,5 @@
 import React from "react";
-import ActivitiesVsNP from "../../Components/NationalParkActivities/ActivitiesVsNP";
+import ActivitiesVsNP from "../../components/NationalParkActivities/ActivitiesVsNP";
 
 const NationalParkChartPage = () => {
   return <ActivitiesVsNP />;

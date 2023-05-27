@@ -1,5 +1,5 @@
 import React from "react";
-import StatesData from "../../Components/NationalParksMap/StatesData";
+import StatesData from "../../components/NationalParksMap/StatesData";
 
 const HomePage = () => {
   return (
