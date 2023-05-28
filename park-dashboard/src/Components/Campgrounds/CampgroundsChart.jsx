@@ -1,45 +1,46 @@
-import React from 'react';
+import React from "react";
 import { Campgrounds } from "./Campgrounds";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 
 const CampgroundsChart = () => {
+  const campgroundsData = Campgrounds();
 
-    const campgroundsData = Campgrounds();
+  const stateWiseCampgrounds = campgroundsData
+    .map((camp) => {
+      const physicalAddress = camp.addresses.find(
+        (address) => address.type === "Physical"
+      );
 
-    const stateWiseCampgrounds = campgroundsData.map((camp) => {
-        const physicalAddress = camp.addresses.find(
-            (address) => address.type === "Physical"
-        );
-    
-        return {
-            address: physicalAddress ? physicalAddress.stateCode : ""
-        };
-    }).filter((camp) => camp.address !== "");
-    
-    const counts = stateWiseCampgrounds.reduce((acc, camp) => {
-        const stateCode = camp.address;
-        acc[stateCode] = (acc[stateCode] || 0) + 1;
-        return acc;
-    }, {});
-    
-    const filteredCounts = Object.entries(counts)
-  .filter(([state, count]) => count >= 10);
+      return {
+        address: physicalAddress ? physicalAddress.stateCode : "",
+      };
+    })
+    .filter((camp) => camp.address !== "");
+
+  const counts = stateWiseCampgrounds.reduce((acc, camp) => {
+    const stateCode = camp.address;
+    acc[stateCode] = (acc[stateCode] || 0) + 1;
+    return acc;
+  }, {});
+
+  const filteredCounts = Object.entries(counts).filter(
+    ([state, count]) => count >= 10
+  );
 
   const stateCodes = filteredCounts.map(([state, count]) => state);
-const campCounts = filteredCounts.map(([state, count]) => count);
+  const campCounts = filteredCounts.map(([state, count]) => count);
 
-console.log(filteredCounts);
+  console.log(filteredCounts);
 
-    const chartData = {
-        labels: stateCodes,
-        datasets: [
-            {
-                label: "Count: ",
-                data: campCounts,
-                backgroundColor: [
-                    "rgba(255, 99, 132, 0.8)",
+  const chartData = {
+    labels: stateCodes,
+    datasets: [
+      {
+        label: "Count: ",
+        data: campCounts,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.8)",
           "rgba(75, 192, 192, 0.8)",
           "rgba(255, 205, 86, 0.8)",
           "rgba(201, 203, 207, 0.8)",
@@ -55,17 +56,17 @@ console.log(filteredCounts);
           "rgba(230, 160, 60, 0.8)",
           "rgba(60, 230, 160, 0.8)",
           "rgba(50, 150, 50, 0.8)",
-                  ],
-                  borderWidth: 1,
-            },
         ],
-    }
+        borderWidth: 1,
+      },
+    ],
+  };
 
-    return (
-        <div>
-            <Pie data = {chartData}/>
-        </div>
-    );
+  return (
+    <div>
+      <Pie data={chartData} style={{ width: "50%" }} />
+    </div>
+  );
 };
 
 export default CampgroundsChart;
