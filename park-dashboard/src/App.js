@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ParkInfoPage from "./Pages/ParkInfo/ParkInfoPage";
 import GenericChart from "./Pages/Generic Charts/GenericCharts";
 import NationalParkCharts from "./Pages/NationalParkCharts/NationalParkChartsPage";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 function App() {
   return (
     <BrowserRouter>

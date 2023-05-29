@@ -65,12 +65,15 @@ function ActivitiesVsNP() {
   }, []);
 
   const onDoughnutClick = (event) => {
-    const index = getElementsAtEvent(chartRef.current, event)[0].index;
-    const activity = Object.keys(activitiesObject)[index];
-    const selectedParks = activitiesObject[activity];
-    setSelectedActivity(activity);
-    setSelectedParks(selectedParks);
-    setModalShow(true);
+    const elements = getElementsAtEvent(chartRef.current, event);
+    if (elements.length > 0) {
+      const index = getElementsAtEvent(chartRef.current, event)[0].index;
+      const activity = Object.keys(activitiesObject)[index];
+      const selectedParks = activitiesObject[activity];
+      setSelectedActivity(activity);
+      setSelectedParks(selectedParks);
+      setModalShow(true);
+    }
   };
 
   let data = {

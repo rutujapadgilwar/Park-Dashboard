@@ -3,8 +3,8 @@ import Alerts from "../ParkInfo/Alerts";
 import PhotoCarousel from "../ParkInfo/Carousel";
 import { useParams } from "react-router-dom";
 import "./ParkInfoPage.css";
-import ParkActivities from "../../components/ParkActivities/ParkActivities";
-import ParkNameHeading from "../../components/ParkNameHeading/ParkNameHeading";
+import ParkActivities from "../../Components/ParkActivities/ParkActivities";
+import ParkNameHeading from "../../Components/ParkNameHeading/ParkNameHeading";
 const ParkInfoPage = () => {
   let { parkCode } = useParams();
   return (

@@ -97,7 +97,6 @@ function ParksModal(props) {
 
       sortedParks[state].push(park);
     });
-    console.log(sortedParks);
     setSortedStatePark(sortedParks);
   }, [props.selectedParks]);
 
@@ -109,13 +108,15 @@ function ParksModal(props) {
       className={classes.paddingModal}
       centered
     >
+      <Modal.Header closeButton>
+        <h1>{props.activityName}</h1>
+      </Modal.Header>
       <div className={classes.partialScreen}>
         <img
           src={getActivityImage(props.activityName)}
           alt={props.activityName}
           className={classes.imageSize}
         />
-        <h1 className={classes.centered}>{props.activityName}</h1>
 
         {Object.keys(sortedStatePark)
           .sort()
@@ -137,25 +138,6 @@ function ParksModal(props) {
             </div>
           ))}
       </div>
-      {/* <div className={classes.marginLeft}>
-        <h1 className={classes.centered}>{props.activityName}</h1>
-        {Object.keys(sortedStatePark)
-          .sort()
-          .map((state) => (
-            <div key={stateDictionary[state]}>
-              <h3>{stateDictionary[state]}</h3>
-              <ul>
-                {sortedStatePark[state].map((park) => (
-                  <li key={park.fullName}>
-                    <Link to={`/parkInfoPage/${park.parkCode}`}>
-                      {park.fullName}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-      </div> */}
     </Modal>
   );
 }
