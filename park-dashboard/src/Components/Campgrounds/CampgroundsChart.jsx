@@ -1,10 +1,10 @@
 import React from "react";
-import { Campgrounds } from "./Campgrounds";
+import { LoadCampgroundData } from "./LoadCampgroundData";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 const CampgroundsChart = () => {
-  const campgroundsData = Campgrounds();
+  const campgroundsData = LoadCampgroundData();
 
   const stateWiseCampgrounds = campgroundsData
     .map((camp) => {
@@ -31,8 +31,6 @@ const CampgroundsChart = () => {
   const stateCodes = filteredCounts.map(([state, count]) => state);
   const campCounts = filteredCounts.map(([state, count]) => count);
 
-  console.log(filteredCounts);
-
   const chartData = {
     labels: stateCodes,
     datasets: [
@@ -40,6 +38,24 @@ const CampgroundsChart = () => {
         label: "Count: ",
         data: campCounts,
         backgroundColor: [
+          "rgba(255, 99, 132, 0.8)",
+          "rgba(75, 192, 192, 0.8)",
+          "rgba(255, 205, 86, 0.8)",
+          "rgba(201, 203, 207, 0.8)",
+          "rgba(54, 162, 235, 0.8)",
+          "rgba(200, 100, 50, 0.8)",
+          "rgba(150, 200, 80, 0.8)",
+          "rgba(100, 150, 200, 0.8)",
+          "rgba(50, 80, 150, 0.8)",
+          "rgba(220, 120, 180, 0.8)",
+          "rgba(80, 220, 120, 0.8)",
+          "rgba(180, 80, 220, 0.8)",
+          "rgba(120, 180, 80, 0.8)",
+          "rgba(230, 160, 60, 0.8)",
+          "rgba(60, 230, 160, 0.8)",
+          "rgba(50, 150, 50, 0.8)",
+        ],
+        borderColor: [
           "rgba(255, 99, 132, 0.8)",
           "rgba(75, 192, 192, 0.8)",
           "rgba(255, 205, 86, 0.8)",

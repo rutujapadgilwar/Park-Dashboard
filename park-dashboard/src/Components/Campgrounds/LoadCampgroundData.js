@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "https://developer.nps.gov/api/v1";
 const API_KEY = "OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7";
 
-export const Campgrounds = () => {
+export const LoadCampgroundData = () => {
   const [campgrounds, setCampgrounds] = useState([]);
 
   useEffect(() => {
