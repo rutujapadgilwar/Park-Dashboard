@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { LoadParkData } from "../../LoadParkData";
 import {
   Chart as ChartJS,
@@ -19,7 +19,6 @@ const DesignationPolarArea = (parks) => {
 
   //Unique park designations
   const uniqueDesignations = [...new Set(parkDesignations)];
-  console.log(uniqueDesignations);
 
   //Count of each unique designation
   const counts = parkDesignations.reduce((acc, designation) => {
@@ -28,7 +27,6 @@ const DesignationPolarArea = (parks) => {
   }, {});
 
   const countsOfDesignations = JSON.stringify(counts);
-  console.log(countsOfDesignations);
 
   const filteredDesignations = Object.entries(counts)
     .filter(([designation, count]) => count > 8 && designation !== "")
