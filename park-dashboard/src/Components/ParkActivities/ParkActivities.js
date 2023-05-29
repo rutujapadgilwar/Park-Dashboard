@@ -56,7 +56,7 @@ function ParkActivities(item) {
           elevation={10}
           className={classes.customBorderRadius}
         >
-          <Box p={1}>
+          <Box>
             <List>
               <ListItem>
                 <ListItemAvatar>

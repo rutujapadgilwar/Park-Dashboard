@@ -1,7 +1,7 @@
 .weatherForecast {
   display: grid;
   grid-auto-flow: column;
-  width: 80vh;
+  width: 50vw;
   flex-wrap: wrap; 
   overflow-x: scroll; 
 }
@@ -22,8 +22,24 @@
   background-color: #e2f5fc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
 }
 
+@media (max-width: 768px) {
+  .lineChart {
+    display: none; 
+  }
+  .weatherBox {
+    width: 100%;
+    max-width: 200px;
+    overflow-y: scroll;
+  }
+  .weatherForecast {
+    width: 95%;
+    flex-wrap: wrap; 
+    overflow-x: scroll; 
+  }
+}
 .date {
   font-size: 16px;
   font-weight: bold;

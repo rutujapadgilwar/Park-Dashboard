@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import "./WeatherForecast.css";
-import { WiCloudy, WiRain, WiSnow } from "react-icons/wi"; // Import weather icons from react-icons library
 import {
+  WiCloudy,
+  WiRain,
+  WiSnow,
   WiDaySunny,
   WiDayCloudy,
-  WiCloud,
   WiThunderstorm,
   WiFog,
   WiSmoke,
@@ -157,8 +158,8 @@ function WeatherForecast(item) {
     },
     legend: {
       display: true,
-      position: 'top',
-      align: 'end',
+      position: "top",
+      align: "end",
       labels: {
         fontSize: 4,
         padding: 50,
@@ -178,7 +179,10 @@ function WeatherForecast(item) {
         },
       },
       y: {
-        suggestedMax:Math.max(...dailyForecast.map((weatherData) => weatherData.maxTemperature)) + 2,
+        suggestedMax:
+          Math.max(
+            ...dailyForecast.map((weatherData) => weatherData.maxTemperature)
+          ) + 2,
         grid: {
           color: "rgba(0, 0, 0, 0.1)",
         },
@@ -265,7 +269,6 @@ function WeatherForecast(item) {
               {forecast.description.charAt(0).toUpperCase() +
                 forecast.description.slice(1)}
             </div>
-
             <div className="weatherIcon">
               {forecast.description === "clear sky" && <WiDaySunny size={32} />}
               {forecast.description === "few clouds" && (
