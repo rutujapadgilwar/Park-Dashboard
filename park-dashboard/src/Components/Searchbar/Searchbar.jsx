@@ -1,9 +1,12 @@
 import React from "react";
 import Select from "react-select";
 import "./searchbar.css";
+import { LoadParkData } from "../../LoadParkData";
 
-const Searchbar = ({ parks }) => {
-  const options = parks
+const Searchbar = (parks) => {
+  const parkData = LoadParkData(parks)
+
+  const options = parkData
     .filter((park) => park.designation === "National Park")
     .map((park) => ({
       value: park.fullName,
