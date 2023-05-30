@@ -1,5 +1,5 @@
 import React from "react";
-import { LoadCampgroundData } from "./LoadCampgroundData";
+import { LoadCampgroundData } from "./LoadCampground";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
@@ -80,7 +80,7 @@ const CampgroundsChart = () => {
 
   return (
     <div>
-      <Pie data={chartData} style={{ width: "50%" }} />
+      <Pie className="py-3" data={chartData} style={{height: "300px"}} />
     </div>
   );
 };
