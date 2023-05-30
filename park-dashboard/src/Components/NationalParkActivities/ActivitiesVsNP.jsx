@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, getElementsAtEvent } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+import ParksModal from "./ParksModal";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const useStyles = makeStyles((theme) => ({
@@ -14,11 +17,28 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     width: "100vh",
   },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalContent: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
 
 function ActivitiesVsNP() {
   const [activitiesObject, setActivitiesObject] = useState({});
+  const [selectedParks, setSelectedParks] = useState([]);
+  const [selectedActivity, setSelectedActivity] = useState();
+  const [modalShow, setModalShow] = useState(false);
+
   const classes = useStyles();
+  const chartRef = useRef();
+
   const fetchActivities = async () => {
     axios
       .get(
@@ -36,7 +56,6 @@ function ActivitiesVsNP() {
           if (parks.length < 15) return;
           activitiesObject[activity.name] = parks;
         });
-        console.log(activitiesObject);
         setActivitiesObject(activitiesObject);
       });
   };
@@ -44,6 +63,18 @@ function ActivitiesVsNP() {
   useEffect(() => {
     fetchActivities();
   }, []);
+
+  const onDoughnutClick = (event) => {
+    const elements = getElementsAtEvent(chartRef.current, event);
+    if (elements.length > 0) {
+      const index = getElementsAtEvent(chartRef.current, event)[0].index;
+      const activity = Object.keys(activitiesObject)[index];
+      const selectedParks = activitiesObject[activity];
+      setSelectedActivity(activity);
+      setSelectedParks(selectedParks);
+      setModalShow(true);
+    }
+  };
 
   let data = {
     labels: Object.keys(activitiesObject),
@@ -111,7 +142,16 @@ function ActivitiesVsNP() {
         className={classes.padding}
         width={"50%"}
         options={{ maintainAspectRatio: true }}
-      />{" "}
+        id="my-Chart"
+        ref={chartRef}
+        onClick={onDoughnutClick}
+      />
+      <ParksModal
+        activityName={selectedActivity}
+        selectedParks={selectedParks}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }
