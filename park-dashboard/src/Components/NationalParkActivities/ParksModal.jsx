@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import getActivityImage from "./utilities/ActivityImages";
+import stateAbbreviation from "./utilities/stateAbbreviation";
+
 const useStyles = makeStyles((theme) => ({
   parksMargin: {
     marginLeft: "30px",
@@ -31,58 +33,58 @@ const linkStyle = {
 
 function ParksModal(props) {
   const classes = useStyles();
-  const stateDictionary = {
-    AL: "Alabama",
-    AK: "Alaska",
-    AZ: "Arizona",
-    AR: "Arkansas",
-    CA: "California",
-    CO: "Colorado",
-    CT: "Connecticut",
-    DE: "Delaware",
-    FL: "Florida",
-    GA: "Georgia",
-    HI: "Hawaii",
-    ID: "Idaho",
-    IL: "Illinois",
-    IN: "Indiana",
-    IA: "Iowa",
-    KS: "Kansas",
-    KY: "Kentucky",
-    LA: "Louisiana",
-    ME: "Maine",
-    MD: "Maryland",
-    MA: "Massachusetts",
-    MI: "Michigan",
-    MN: "Minnesota",
-    MS: "Mississippi",
-    MO: "Missouri",
-    MT: "Montana",
-    NE: "Nebraska",
-    NV: "Nevada",
-    NH: "New Hampshire",
-    NJ: "New Jersey",
-    NM: "New Mexico",
-    NY: "New York",
-    NC: "North Carolina",
-    ND: "North Dakota",
-    OH: "Ohio",
-    OK: "Oklahoma",
-    OR: "Oregon",
-    PA: "Pennsylvania",
-    RI: "Rhode Island",
-    SC: "South Carolina",
-    SD: "South Dakota",
-    TN: "Tennessee",
-    TX: "Texas",
-    UT: "Utah",
-    VT: "Vermont",
-    VA: "Virginia",
-    WA: "Washington",
-    WV: "West Virginia",
-    WI: "Wisconsin",
-    WY: "Wyoming",
-  };
+  //   const stateDictionary = {
+  //     AL: "Alabama",
+  //     AK: "Alaska",
+  //     AZ: "Arizona",
+  //     AR: "Arkansas",
+  //     CA: "California",
+  //     CO: "Colorado",
+  //     CT: "Connecticut",
+  //     DE: "Delaware",
+  //     FL: "Florida",
+  //     GA: "Georgia",
+  //     HI: "Hawaii",
+  //     ID: "Idaho",
+  //     IL: "Illinois",
+  //     IN: "Indiana",
+  //     IA: "Iowa",
+  //     KS: "Kansas",
+  //     KY: "Kentucky",
+  //     LA: "Louisiana",
+  //     ME: "Maine",
+  //     MD: "Maryland",
+  //     MA: "Massachusetts",
+  //     MI: "Michigan",
+  //     MN: "Minnesota",
+  //     MS: "Mississippi",
+  //     MO: "Missouri",
+  //     MT: "Montana",
+  //     NE: "Nebraska",
+  //     NV: "Nevada",
+  //     NH: "New Hampshire",
+  //     NJ: "New Jersey",
+  //     NM: "New Mexico",
+  //     NY: "New York",
+  //     NC: "North Carolina",
+  //     ND: "North Dakota",
+  //     OH: "Ohio",
+  //     OK: "Oklahoma",
+  //     OR: "Oregon",
+  //     PA: "Pennsylvania",
+  //     RI: "Rhode Island",
+  //     SC: "South Carolina",
+  //     SD: "South Dakota",
+  //     TN: "Tennessee",
+  //     TX: "Texas",
+  //     UT: "Utah",
+  //     VT: "Vermont",
+  //     VA: "Virginia",
+  //     WA: "Washington",
+  //     WV: "West Virginia",
+  //     WI: "Wisconsin",
+  //     WY: "Wyoming",
+  //   };
 
   const [sortedStatePark, setSortedStatePark] = useState({});
   useEffect(() => {
@@ -121,8 +123,8 @@ function ParksModal(props) {
         {Object.keys(sortedStatePark)
           .sort()
           .map((state) => (
-            <div key={stateDictionary[state]} className={classes.parksMargin}>
-              <h3>{stateDictionary[state]}</h3>
+            <div key={stateAbbreviation[state]} className={classes.parksMargin}>
+              <h3>{stateAbbreviation[state]}</h3>
               <ul>
                 {sortedStatePark[state].map((park) => (
                   <li key={park.fullName}>
