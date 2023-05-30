@@ -28,6 +28,7 @@ import {
   GiInnerSelf,
   GiCanoe,
   GiPineTree,
+  GiSailboat
 } from "react-icons/gi";
 import {
   FaMountain,
@@ -44,6 +45,7 @@ import {
   MdOutlineSportsScore,
   MdSailing,
   MdBedroomBaby,
+  MdOutlineKayaking
 } from "react-icons/md";
 import { TbFileOrientation } from "react-icons/tb";
 import { SiGeocaching } from "react-icons/si";
@@ -148,7 +150,7 @@ const getActivityIcon = (activityName) => {
     case "Shopping":
       return <ShoppingIcon />;
     case "Boat Tour":
-      return <BoatingIcon />;
+      return <GiSailboat />;
     case "Road Biking":
       return <TwoWheelerIcon />;
     case "Group Camping":
@@ -219,8 +221,10 @@ const getActivityIcon = (activityName) => {
       return <GiSpeedBoat />;
     case "Mountain Climbing":
       return <GiMountainClimbing />;
-    case "Canoe or Kayak Camping":
+    case "Canoe":
       return <KayakingIcon />;
+    case  "Kayak Camping":
+      return <MdOutlineKayaking />;
     case "Orienteering":
       return <TbFileOrientation />;
     case "Saltwater Fishing":
