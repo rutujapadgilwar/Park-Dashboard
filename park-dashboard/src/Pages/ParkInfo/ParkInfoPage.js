@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./ParkInfoPage.css";
 import ParkActivities from "../../Components/ParkActivities/ParkActivities";
 import ParkNameHeading from "../../Components/ParkNameHeading/ParkNameHeading";
+import PassportCenters from "../../Components/StampingCenters/PassportCenters";
 const ParkInfoPage = () => {
   let { parkCode } = useParams();
   return (
@@ -23,6 +24,9 @@ const ParkInfoPage = () => {
         <div className="parkActivities">
           <ParkActivities parkCode={parkCode} />
         </div>
+      </div>
+      <div className="stamping-centers">
+        <PassportCenters parkCode={parkCode} />
       </div>
     </div>
   );
