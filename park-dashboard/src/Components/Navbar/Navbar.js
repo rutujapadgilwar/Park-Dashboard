@@ -7,7 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { createTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Grid from "@material-ui/core/Grid";
 import ParkIcon from "@mui/icons-material/Park";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -22,8 +25,11 @@ const useStyles = makeStyles((theme) => ({
   navbarButton: {
     height: "100%",
     display: "block",
-    padding: "20px",
+    padding: "15px",
     alignItems: "center",
+    textDecoration: "none",
+    color: theme.palette.common.white,
+
     "&:hover": {
       backgroundColor: "#333333",
       color: "white",
@@ -32,49 +38,47 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#faa810",
     },
   },
-  navbarLink: {
-    height: "100%",
-    font: "boldest",
-    display: "block",
-    color: theme.palette.common.white,
-    textDecoration: "none",
-  },
   header: {
     position: "fixed",
     backgroundColor: "black",
-    color: "White",
-    height: "70px",
-    boxShadow: "1px 0px 0px 0px",
   },
 }));
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FF000",
+      main: "#FF0000",
     },
   },
 });
+
 const Navbar = () => {
   const classes = useStyles();
+  const isLargeScreen = useMediaQuery("(min-width: 700px)");
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <AppBar className={classes.header}>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              <Link to="/" className={classes.navbarLink}>
-                Park Dashboard
-                <ParkIcon className={classes.parklogo} />
-              </Link>
+              <Button color="inherit" className={classes.navbarLink}>
+                <Link to="/" className={classes.navbarButton}>
+                  <Grid container alignItems="center" spacing={1}>
+                    <Grid item>
+                      <ParkIcon className={classes.parklogo} />
+                    </Grid>
+                    {isLargeScreen && <Grid item>Park Dashboard</Grid>}
+                  </Grid>
+                </Link>
+              </Button>
             </Typography>
-            <Button color="inherit" className={classes.navbarButton}>
-              <Link to="/GenericCharts" className={classes.navbarLink}>
+            <Button color="inherit" className={classes.navbarLink}>
+              <Link to="/GenericCharts" className={classes.navbarButton}>
                 Generic Charts
               </Link>
             </Button>
-            <Button color="inherit" className={classes.navbarButton}>
-              <Link to="/NationalParkCharts" className={classes.navbarLink}>
-                National Park Charts
+            <Button color="inherit" className={classes.navbarLink}>
+              <Link to="/NationalParkCharts" className={classes.navbarButton}>
+                {isLargeScreen ? "National Park Charts" : "Park Charts"}
               </Link>
             </Button>
           </Toolbar>
@@ -83,4 +87,5 @@ const Navbar = () => {
     </ThemeProvider>
   );
 };
+
 export default Navbar;

@@ -1,0 +1,158 @@
+.weatherForecast {
+  display: grid;
+  grid-auto-flow: column;
+  width: 50vw;
+  flex-wrap: wrap; 
+  overflow-x: scroll; 
+}
+
+.weatherDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.weatherBox {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+  background-color: #e2f5fc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+@media (max-width: 768px) {
+  .lineChart {
+    display: none; 
+  }
+  .weatherBox {
+    width: 100%;
+    max-width: 200px;
+    overflow-y: scroll;
+  }
+  .weatherForecast {
+    width: 95%;
+    flex-wrap: wrap; 
+    overflow-x: scroll; 
+  }
+}
+.date {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.temperatureLabel {
+  font-weight: bold;
+}
+
+.humidity,
+.windSpeed {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.humidityLabel,
+.windSpeedLabel {
+  font-weight: bold;
+}
+
+.weatherIcon {
+  color: #000000; 
+  font-size: 32px; 
+}
+
+.weatherBox.clear-sky {
+  background-color: #fceeb5; 
+}
+
+.weatherBox.few-clouds {
+  background-color: #d4dce6; 
+}
+
+.weatherBox.light-rain {
+  background-color: #cddc; 
+}
+
+.weatherBox.scattered-clouds {
+  background-color: #c2d9e8; 
+}
+
+.weatherBox.broken-clouds {
+  background-color: #b8c8d4; 
+}
+.weatherBox.overcast-clouds {
+  background-color: #c3c3c3;
+}
+.weatherBox.rain {
+  background-color: #85b7fa; 
+}
+.weatherBox.moderate-rain {
+  background-color: #aecaf1;
+}
+.weatherBox.thunderstorm {
+  background-color: #635c8a; 
+}
+
+.weatherBox.snow {
+  background-color: #eaf3ff; 
+}
+
+.weatherBox.mist {
+  background-color: #cdddf1;  
+}
+
+.weatherBox.smoke {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.haze {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.dust {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.fog {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.sand {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.ash {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.squall {
+  background-color: #c3c3c3;  
+}
+
+.weatherBox.tornado {
+  background-color: #c3c3c3;  
+}
+.weatherBox{
+  background-color: #cddcf3;
+}
+
+.lineChart {
+  width: 70%;
+  height: 250px;
+  align-self: center;
+  justify-content: center;
+  margin-left: 60px;
+}
+.weatherLineChart {
+  align-items: center;
+}
