@@ -2,8 +2,8 @@
   display: grid;
   grid-auto-flow: column;
   width: 50vw;
-  flex-wrap: wrap; 
-  overflow-x: scroll; 
+  flex-wrap: wrap;
+  overflow-x: scroll;
 }
 
 .weatherDescription {
@@ -27,7 +27,7 @@
 
 @media (max-width: 768px) {
   .lineChart {
-    display: none; 
+    display: none;
   }
   .weatherBox {
     width: 100%;
@@ -36,8 +36,8 @@
   }
   .weatherForecast {
     width: 95%;
-    flex-wrap: wrap; 
-    overflow-x: scroll; 
+    flex-wrap: wrap;
+    overflow-x: scroll;
   }
 }
 .date {
@@ -67,83 +67,88 @@
 }
 
 .weatherIcon {
-  color: #000000; 
-  font-size: 32px; 
+  color: #000000;
+  font-size: 32px;
 }
 
 .weatherBox.clear-sky {
-  background-color: #fceeb5; 
+  background-color: var(--yellow);
 }
 
 .weatherBox.few-clouds {
-  background-color: #d4dce6; 
+  background-color: var(--light-blue);
 }
 
 .weatherBox.light-rain {
-  background-color: #cddc; 
+  background-color: var(--lighter-blue);
 }
 
 .weatherBox.scattered-clouds {
-  background-color: #c2d9e8; 
+  background-color: var(--lighter-sky-blue);
 }
 
 .weatherBox.broken-clouds {
-  background-color: #b8c8d4; 
+  background-color: var(--lighter-gray-blue);
 }
+
 .weatherBox.overcast-clouds {
-  background-color: #c3c3c3;
+  background-color: var(--gray);
 }
+
 .weatherBox.rain {
-  background-color: #85b7fa; 
+  background-color: var(--light-blue-sky);
 }
+
 .weatherBox.moderate-rain {
-  background-color: #aecaf1;
+  background-color: var(--light-blue-calm);
 }
+
 .weatherBox.thunderstorm {
-  background-color: #635c8a; 
+  background-color: var(--dark-blue);
 }
 
 .weatherBox.snow {
-  background-color: #eaf3ff; 
+  background-color: var(--light-blue-snow);
 }
 
 .weatherBox.mist {
-  background-color: #cdddf1;  
+  background-color: var(--light-blue-mist);
 }
 
 .weatherBox.smoke {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.haze {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.dust {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.fog {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.sand {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.ash {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.squall {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
 
 .weatherBox.tornado {
-  background-color: #c3c3c3;  
+  background-color: var(--light-gray);
 }
-.weatherBox{
-  background-color: #cddcf3;
+
+.weatherBox {
+  background-color: var(--light-white-blue);
 }
 
 .lineChart {

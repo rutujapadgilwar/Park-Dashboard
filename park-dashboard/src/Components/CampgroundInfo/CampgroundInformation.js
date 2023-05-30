@@ -1,14 +1,16 @@
 import React from "react";
-import { LoadCampgroundData } from "./LoadCampgroundData";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
+import { LoadCampgroundData } from "../Campgrounds/LoadCampground";
+import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 function CampgroundInformation(item) {
   const CampgroundInformation = LoadCampgroundData(item);
   const parkCode = item.parkCode;
   if (!CampgroundInformation || !parkCode) {
-    console.log("Null");
-    return null; // Return null if ThingsToDoData or parkCode is undefined
+    <Box p={5}>
+      <h4>Sorry, Not have any trail or things you can explore</h4>
+    </Box>;
+    return null;
   }
   const campground = CampgroundInformation.filter(
     (p) => p.parkCode === parkCode && p.campsites.totalSites > 5
@@ -18,7 +20,9 @@ function CampgroundInformation(item) {
     window.open(url, "_blank");
   };
   return (
-    <div style={{ display: "flex", flexDirection: "column", overflowY: "auto" }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", overflowY: "auto" }}
+    >
       {campground.map((item) => (
         <Card key={item.id} sx={{ maxWidth: 690, margin: "1rem" }}>
           <CardMedia
@@ -36,7 +40,11 @@ function CampgroundInformation(item) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => openUrl(item.url)}>Learn More</Button>
+            {item.regulationsurl && (
+              <Button size="small" onClick={() => openUrl(item.regulationsurl)}>
+                Learn More
+              </Button>
+            )}
           </CardActions>
         </Card>
       ))}

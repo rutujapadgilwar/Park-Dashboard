@@ -1,4 +1,3 @@
-import { height } from "@mui/system";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import DesignationPolarArea from "../../Components/ParkDesignations/DesignationPolarArea";
