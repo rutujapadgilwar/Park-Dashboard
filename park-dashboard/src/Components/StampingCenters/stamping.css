@@ -23,5 +23,15 @@
     font-size: 18px;
     padding: 8px;
     background-color: #f1f1f1;
+    border: 1px solid black;
     border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+    .passport-locations {
+      flex-direction: column;
+    }
+    .location-list {
+        width: 80%;
+    }
+  }
