@@ -1,0 +1,14 @@
+.chartDisplay{
+    height: 500px;
+    width: 1400px;
+    padding-bottom: 50px;
+}
+.chart{
+    padding-bottom: 50px;
+}
+.chartDisplay1{
+    align-content: center;
+    height: 500px;
+    margin-left:  2rem;
+    margin-right: 2rem;
+}

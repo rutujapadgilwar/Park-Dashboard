@@ -23,7 +23,5 @@ export const LoadParkData = () => {
 		fetchData();
 	}, []);
 
-	console.log(parkData);
-
 	return parkData;
 };
