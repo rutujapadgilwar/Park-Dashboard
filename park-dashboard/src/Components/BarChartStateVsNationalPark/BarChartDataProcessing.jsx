@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { redirect } from "react-router-dom";
 import "./BarChartStateVsNationalParks.css";
 import stateAbbreviation from "../NationalParkActivities/utilities/stateAbbreviation";
-import  stateNameToAbbreviations from "./stateNameToAbbreviations";
+import stateNameToAbbreviations from "./stateNameToAbbreviations";
+import { Modal, Button } from "react-bootstrap";
 
 function BarChartDataProcessing({ parkData }) {
   const [barChartData, setBarChartData] = useState([]);
   const [parkNamesByStates, setParkNamesByStates] = useState([]);
   const [selectedStateParkNames, setselectedStateParkNames] = useState([]);
-
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     if (parkData.length === 0) return;
 
@@ -18,6 +19,7 @@ function BarChartDataProcessing({ parkData }) {
       name: park.fullName,
       parkCode: park.parkCode,
       state: park.states.split(",")[0],
+      url: park.images[0].url,
     }));
 
     // Process chart data
@@ -59,8 +61,8 @@ function BarChartDataProcessing({ parkData }) {
   }, [parkData]);
 
   // Rest of the code...
-   // Display Bar Chart
-   const chartData = {
+  // Display Bar Chart
+  const chartData = {
     labels: barChartData.map(
       (item) => stateAbbreviation[item.state] || item.state
     ),
@@ -157,19 +159,21 @@ function BarChartDataProcessing({ parkData }) {
 
   // Print the column name which user clicked.
   const chartRef = useRef();
-  const onClick = (event) => {
-    const Index = getElementAtEvent(chartRef.current, event);
-    if (Index[0] !== undefined) {
-      const coloumIndex = Index[0].index;
-      const stateName = stateNameToAbbreviations[chartData.labels[coloumIndex]];
-      const parkNamesByStatesList = parkNamesByStates[stateName];
-      setselectedStateParkNames(parkNamesByStates[stateName]);
+  const handleClick = (event) => {
+    const index = getElementAtEvent(chartRef.current, event)[0]?.index;
+
+    if (index !== undefined) {
+      const stateName = stateNameToAbbreviations[chartData.labels[index]];
+      const parkNames = parkNamesByStates[stateName];
+      setselectedStateParkNames(parkNames);
+      setShowModal(true);
     } else {
-      console.log("Not clicked on bar Coloumn");
+      console.log("Not clicked on a bar column");
     }
   };
-  const handleFunction = (item1, item2) => {
-    return redirect("/parkInfoPage");
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -178,25 +182,43 @@ function BarChartDataProcessing({ parkData }) {
         <Bar
           data={chartData}
           options={options}
-          onClick={onClick}
+          onClick={handleClick}
           ref={chartRef}
         />
       </div>
-      {/* Print the all park names presented in the state */}
-      {selectedStateParkNames.length > 0 && (
-        <div>
-          <h2>Selected State Park Names:</h2>
-          <ul>
-            {selectedStateParkNames.map((item, index) => (
-              <li key={index}>
-                <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+
+      <Modal show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Parks</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modal-body">
+          {selectedStateParkNames.length > 0 ? (
+            <div className="row">
+              {selectedStateParkNames.map((item, index) => (
+                <div key={index} className="col-lg-6">
+                  <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }}>
+                    <div className="park-item">
+                      <img
+                        src={item.url}
+                        alt={item.name}
+                        className="park-image"
+                      />
+                      <span className="park-name">{item.name}</span>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No state park names selected.</p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
