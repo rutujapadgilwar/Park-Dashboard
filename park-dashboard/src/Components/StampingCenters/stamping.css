@@ -1,0 +1,27 @@
+.passport-locations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stamping-image {
+    width: 50%;
+}
+.stamp {
+    width: 100%;
+    height: auto;
+}
+
+.location-list {
+    width: 60%;
+}
+
+.center-name {
+    list-style-type: none;
+    width: 80%;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 8px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
