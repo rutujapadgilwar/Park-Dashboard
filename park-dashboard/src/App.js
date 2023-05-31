@@ -5,6 +5,7 @@ import ParkInfoPage from "./Pages/ParkInfo/ParkInfoPage";
 import GenericChart from "./Pages/Generic Charts/GenericCharts";
 import NationalParkCharts from "./Pages/NationalParkCharts/NationalParkChartsPage";
 import Navbar from "./Components/Navbar/Navbar";
+
 function App() {
   return (
     <BrowserRouter>
