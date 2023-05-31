@@ -14,12 +14,18 @@ const ParkInfoPage = () => {
     <div>
       <PhotoCarousel parkCode={parkCode}></PhotoCarousel>
       <ParkNameHeading parkCode={parkCode}></ParkNameHeading>
-      <div className="container">
-        <div className="left-col">
-          <Alerts parkCode={parkCode}></Alerts>
+      <div className="gridContainer">
+        <div className="ActivityHeading">
+          <h2>Alerts</h2>
+          <div className="alerts">
+            <Alerts parkCode={parkCode}></Alerts>
+          </div>
         </div>
-        <div className="right-col">
-          <WeatherForecast parkCode={parkCode}></WeatherForecast>
+        <div className="ActivityHeading">
+          <h2>Weather forecast</h2>
+          <div className="weather-forecast">
+            <WeatherForecast parkCode={parkCode}></WeatherForecast>
+          </div>
         </div>
       </div>
       <div className="gridContainer">

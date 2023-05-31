@@ -77,3 +77,22 @@
   overflow-y: scroll;
   max-height: 50vh;
 }
+
+.alerts {
+  overflow-y: scroll;
+  max-height: 50vh;
+  width: 45vw;
+  margin-left: 16px;
+}
+.weather-forecast {
+  overflow-y: scroll;
+  max-height: 50vh;
+  width: 55vw;
+}
+
+@media only screen and (max-width: 800px) {
+  .alerts,
+  .weather-forecast {
+    width: 95vw;
+  }
+}
