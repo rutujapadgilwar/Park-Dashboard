@@ -25,18 +25,26 @@ const PassportCenters = (centers) => {
   return (
     <div className="passport-locations">
       <div className="stamping-image">
-      <img className="stamp" src={stampImage} alt="Stamping-Logo" />
+        <img className="stamp" src={stampImage} alt="Stamping-Logo" />
       </div>
       <div className="location-list">
-      {stampingCenters.length > 0 ? (
-        <ul>
-          {stampingCenters.map((center) => (
-            <div className="center-name"><li key={center.label}>{center.label}</li></div>
-          ))}
-        </ul>
-      ) : (
-        <p>No stamping center found.</p>
-      )}
+        {stampingCenters.length > 0 ? (
+          <ul>
+            {stampingCenters.map((center) => (
+              <div className="center">
+                <div className="center-name">
+                  <li>
+                    <a class="center-link" href={center.parks[0].url}>
+                      {center.label}
+                    </a>
+                  </li>
+                </div>
+              </div>
+            ))}
+          </ul>
+        ) : (
+          <p>No stamping center found.</p>
+        )}
       </div>
     </div>
   );

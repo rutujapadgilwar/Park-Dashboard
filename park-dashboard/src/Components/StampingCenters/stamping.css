@@ -16,15 +16,39 @@
     width: 60%;
 }
 
-.center-name {
-    list-style-type: none;
-    width: 80%;
+.center {
     margin-bottom: 10px;
-    font-size: 18px;
-    padding: 8px;
     background-color: #f1f1f1;
     border: 1px solid black;
     border-radius: 10px;
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+
+}
+.center:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+
+}
+.center-name {
+    list-style-type: none;
+    width: 100%;
+    font-size: 18px;
+    padding: 8px; 
+}
+.center-name:hover {
+    color: white;
+}
+.center-link {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+.center-link:hover {
+    color: white;
 }
 
 @media (max-width: 768px) {
