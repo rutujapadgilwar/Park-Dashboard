@@ -4,7 +4,7 @@ import "./searchbar.css";
 import { LoadParkData } from "../../LoadParkData";
 
 const Searchbar = (parks) => {
-  const parkData = LoadParkData(parks)
+  const parkData = LoadParkData(parks);
 
   const options = parkData
     .filter((park) => park.designation === "National Park")

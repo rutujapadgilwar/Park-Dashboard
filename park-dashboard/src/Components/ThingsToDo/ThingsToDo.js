@@ -1,19 +1,39 @@
 import React from "react";
 import { LoadThingsToDodata } from "./LoadThingsToDoData";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
+import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
 function ThingsToDo(item) {
   const ThingsToDoData = LoadThingsToDodata(item);
   const parkCode = item.parkCode;
   if (!ThingsToDoData || !parkCode) {
-    console.log("Null");
-    return null; // Return null if ThingsToDoData or parkCode is undefined
+    <Box p={5}>
+      <h4>Sorry, Not have any trail or things you can explore</h4>
+    </Box>
+    return null;
   }
   const park = ThingsToDoData.filter(
     (p) => p.relatedParks[0]?.parkCode === parkCode
   );
+  if (park.length === 0) {
+    return (
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "10vh",
+        }}
+      >
+        <Box p={5}>
+          <h4>Sorry, Not have any trail or things you can explore</h4>
+        </Box>
+        ;
+      </div>
+    );
+  }
+
   const openUrl = (url) => {
     window.open(url, "_blank");
   };
@@ -36,7 +56,11 @@ function ThingsToDo(item) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => openUrl(item.url)}>Learn More</Button>
+            {item.url && (
+              <Button key={item.id} size="small" onClick={() => openUrl(item.url)}>
+                Learn More
+              </Button>
+            )}
           </CardActions>
         </Card>
       ))}
