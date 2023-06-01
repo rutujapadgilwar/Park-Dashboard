@@ -16,6 +16,24 @@ function ThingsToDo(item) {
   const park = ThingsToDoData.filter(
     (p) => p.relatedParks[0]?.parkCode === parkCode
   );
+  if (park.length === 0) {
+    return (
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "10vh",
+        }}
+      >
+        <Box p={5}>
+          <h4>Sorry, Not have any trail or things you can explore</h4>
+        </Box>
+        ;
+      </div>
+    );
+  }
+
   const openUrl = (url) => {
     window.open(url, "_blank");
   };
