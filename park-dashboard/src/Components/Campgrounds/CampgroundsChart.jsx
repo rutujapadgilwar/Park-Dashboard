@@ -6,22 +6,25 @@ import { Pie } from "react-chartjs-2";
 const CampgroundsChart = () => {
   const campgroundsData = LoadCampgroundData();
   const stateWiseCampgrounds = campgroundsData
-    .map((camp) => {
-      const physicalAddress = camp.parks.find(
-        (park) => park.designation === "National Park"
-      );
+  .map((camp) => {
+    const physicalAddress = camp.addresses.find(
+      (address) => address.type === "Physical"
+    );
 
-      return {
-        address: physicalAddress ? physicalAddress.states : "",
-      };
-    })
-    .filter((camp) => camp.address !== "");
+    return {
+      address: physicalAddress ? physicalAddress.stateCode : "",
+    };
+  })
+  .filter((camp) => camp.address !== "");
 
+    console.log(stateWiseCampgrounds)
   const counts = stateWiseCampgrounds.reduce((acc, camp) => {
     const stateCode = camp.address;
     acc[stateCode] = (acc[stateCode] || 0) + 1;
     return acc;
   }, {});
+
+  console.log(counts)
 
   const filteredCounts = Object.entries(counts).filter(
     ([state, count]) => count >= 4
