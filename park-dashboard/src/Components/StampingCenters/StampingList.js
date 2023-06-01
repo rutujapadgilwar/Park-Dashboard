@@ -22,6 +22,13 @@ export const StampingList = () => {
                 api_key: API_KEY,
                 limit: 1000,
               },
+            },
+            `${BASE_URL}/visitorcenters`,
+            {
+              params: {
+                api_key: API_KEY,
+                limit: 1000,
+              },
             }
           );
 

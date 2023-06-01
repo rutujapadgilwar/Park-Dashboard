@@ -1,8 +1,8 @@
 import React from "react";
 import { LoadThingsToDodata } from "./LoadThingsToDoData";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
 function ThingsToDo(item) {
   const ThingsToDoData = LoadThingsToDodata(item);
@@ -36,7 +36,9 @@ function ThingsToDo(item) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={() => openUrl(item.url)}>Learn More</Button>
+            <Button size="small" onClick={() => openUrl(item.url)}>
+              Learn More
+            </Button>
           </CardActions>
         </Card>
       ))}

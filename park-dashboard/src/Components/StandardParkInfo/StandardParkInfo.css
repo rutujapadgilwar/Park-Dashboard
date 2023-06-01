@@ -20,14 +20,14 @@
     width: 30%;
     margin-top: 2rem;
     text-transform: capitalize;
-    background-color: #c0dee9;
+    background-color: #c2e9c2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
 }
 .weather-info {
     width: 30%;
     margin-top: 2rem;
-    background-color: #c0dee9;
+    background-color: #c2e9c2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin-left: 2rem;

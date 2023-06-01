@@ -64,9 +64,7 @@ const DesignationPolarArea = (parks) => {
   };
   return (
     <div>
-      <PolarArea style={{height: "300px"}}
-        data={designationData}
-      />
+      <PolarArea style={{ height: "300px" }} data={designationData} />
     </div>
   );
 };
