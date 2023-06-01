@@ -1,0 +1,9 @@
+.custom-alert {
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .custom-alert {
+    height: 150px;
+  }
+}
