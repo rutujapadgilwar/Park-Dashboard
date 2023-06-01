@@ -13,9 +13,24 @@ function CampgroundInformation(item) {
     return null;
   }
   const campground = CampgroundInformation.filter(
-    (p) => p.parkCode === parkCode && p.campsites.totalSites > 5
+    (p) => p.parkCode === parkCode
   );
-  console.log(campground);
+  if (campground.length === 0) {
+    return (
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "10vh",
+        }}
+      >
+        <Box p={5}>
+          <h4>Sorry, Not have any campground info</h4>
+        </Box>
+      </div>
+    );
+  }
   const openUrl = (url) => {
     window.open(url, "_blank");
   };

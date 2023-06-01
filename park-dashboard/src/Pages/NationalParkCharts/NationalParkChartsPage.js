@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import ActivitiesVsNP from "../../Components/NationalParkActivities/ActivitiesVsNP";
 import StateVsNationalParks from "../../Components/BarChartStateVsNationalPark/StateVsNationalParks";
 

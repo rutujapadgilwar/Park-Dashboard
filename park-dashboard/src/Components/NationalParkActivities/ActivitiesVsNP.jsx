@@ -12,11 +12,6 @@ const useStyles = makeStyles((theme) => ({
   padding: {
     paddingTop: "70px",
   },
-  chartContainer: {
-    position: "relative",
-    height: "100vh",
-    width: "100vh",
-  },
   modal: {
     display: "flex",
     alignItems: "center",
@@ -135,13 +130,16 @@ function ActivitiesVsNP() {
       },
     ],
   };
+  const options = {
+    maintainAspectRatio: true, // Disable maintaining aspect ratio
+    responsive: true, // Enable responsiveness
+  };
   return (
-    <div className={classes.chartContainer}>
+    <div>
       <Doughnut
         data={data}
         className={classes.padding}
-        width={"50%"}
-        options={{ maintainAspectRatio: true }}
+        options={options}
         id="my-Chart"
         ref={chartRef}
         onClick={onDoughnutClick}
