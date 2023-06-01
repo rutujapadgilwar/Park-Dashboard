@@ -16,27 +16,37 @@ const ParkInfoPage = () => {
 			<ParkNameHeading parkCode={parkCode}></ParkNameHeading>
 			<div className="container">
 				<div className="left-col">
+					<h2>
+						<span className = "header">Alerts</span>
+					</h2>
 					<Alerts parkCode={parkCode}></Alerts>
 				</div>
 				<div className="right-col">
+					<h2><span className = "header">Weather Forecast</span></h2>
 					<WeatherForecast parkCode={parkCode}></WeatherForecast>
 				</div>
 			</div>
 			<div className="gridContainer">
 				<div className="ActivityHeading">
-					<h2>To-Do Activities</h2>
+					<h2>
+					<span className = "header">To-Do Activities</span>
+					</h2>
 					<div className="parkActivities">
 						<ParkActivities parkCode={parkCode}></ParkActivities>
 					</div>
 				</div>
 				<div className="ActivityHeading">
-					<h2>Things to explore</h2>
+					<h2>
+						<span className = "header">Things to explore</span>
+					</h2>
 					<div className="thingsTodo">
 						<ThingsToDo parkCode={parkCode}></ThingsToDo>
 					</div>
 				</div>
 				<div className="ActivityHeading">
-					<h2>Campgrounds and More</h2>
+					<h2>
+						<span className = "header">Campgrounds and More</span>
+					</h2>
 					<div className="campground">
 						<CampgroundInformation parkCode={parkCode}></CampgroundInformation>
 					</div>

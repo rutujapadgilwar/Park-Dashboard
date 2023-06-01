@@ -62,7 +62,6 @@ function Alerts(props) {
 
   return (
     <div>
-      <h1>Alerts</h1>
       <Stack sx={{ width: "100%" }} className="scroll-y" spacing={2}>
         {renderedAlerts}
       </Stack>
