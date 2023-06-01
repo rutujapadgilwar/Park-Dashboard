@@ -25,13 +25,13 @@
     width: 80%;
     text-align: center;
     cursor: pointer;
-    width: 100%;
     font-size: 18px;
     padding: 8px; 
 
 }
 .center-name:hover {
     background-color: black;
+    
 }
 .center-name:hover .center-link {
     color: white;

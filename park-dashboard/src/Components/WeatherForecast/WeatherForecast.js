@@ -243,7 +243,6 @@ function WeatherForecast(item) {
 
   return (
     <div className="weatherLineChart">
-      <h2> Weather Forecast </h2>
       <div className="lineChart">
         <Line data={data} plugins={[ChartDataLabels]} options={options} />
       </div>
