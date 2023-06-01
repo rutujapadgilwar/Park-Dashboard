@@ -3,6 +3,7 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import "./Alerts.css";
 
 function Alerts(props) {
   const [alerts, setAlerts] = useState([]);
@@ -51,7 +52,7 @@ function Alerts(props) {
 
   const renderedAlerts = alertMessages.map((alert) => {
     return (
-      <Alert key={alert.id} severity={alert.severity}>
+      <Alert key={alert.id} severity={alert.severity} className="custom-alert">
         <AlertTitle>
           <strong>{alert.title}</strong>
         </AlertTitle>
@@ -61,7 +62,7 @@ function Alerts(props) {
   });
 
   const noAlertsMessage = (
-    <Alert severity="info">
+    <Alert severity="info" className="custom-alert">
       <AlertTitle>
         {" "}
         <strong>No alerts</strong>
