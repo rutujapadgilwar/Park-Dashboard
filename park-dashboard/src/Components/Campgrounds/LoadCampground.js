@@ -26,7 +26,6 @@ export const LoadCampgroundData = () => {
 
           setCampgrounds(response.data.data);
 
-          // localStorage.setItem(cacheKey, JSON.stringify(response.data.data));
         } catch (error) {
           console.error(error);
         }
