@@ -8,12 +8,16 @@ import ParkNameHeading from "../../Components/ParkNameHeading/ParkNameHeading";
 import WeatherForecast from "../../Components/WeatherForecast/WeatherForecast";
 import ThingsToDo from "../../Components/ThingsToDo/ThingsToDo";
 import CampgroundInformation from "../../Components/CampgroundInfo/CampgroundInformation";
+import StandardInfo from "../../Components/StandardParkInfo/StandardInfo";
 const ParkInfoPage = () => {
 	let { parkCode } = useParams();
 	return (
 		<div>
 			<PhotoCarousel parkCode={parkCode}></PhotoCarousel>
 			<ParkNameHeading parkCode={parkCode}></ParkNameHeading>
+			<div class="info-container">
+				<StandardInfo parkCode={parkCode} />
+			</div>
 			<div className="container">
 				<div className="left-col">
 					<Alerts parkCode={parkCode}></Alerts>
