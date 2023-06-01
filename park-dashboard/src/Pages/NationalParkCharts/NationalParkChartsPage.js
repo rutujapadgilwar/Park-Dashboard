@@ -15,7 +15,7 @@ const NationalParkChartPage = () => {
         </div>
         <div className="donut-chart">
           <h2 style={{ fontSize: "18px" }} className="text-center">
-            Donut Chart: Activities vs. National Parks
+            Donut Chart: Activities vs National Parks
           </h2>
           <ActivitiesVsNP className="py-5 activities" />
         </div>

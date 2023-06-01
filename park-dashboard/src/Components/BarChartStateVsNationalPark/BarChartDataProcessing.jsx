@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Bar, getElementAtEvent } from "react-chartjs-2";
 import { Link } from "react-router-dom";
-import { redirect } from "react-router-dom";
 import "./BarChartStateVsNationalParks.css";
 import stateAbbreviation from "../NationalParkActivities/utilities/stateAbbreviation";
 import stateNameToAbbreviations from "./stateNameToAbbreviations";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function BarChartDataProcessing({ parkData }) {
   const [barChartData, setBarChartData] = useState([]);
   const [parkNamesByStates, setParkNamesByStates] = useState([]);
   const [selectedStateParkNames, setselectedStateParkNames] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectedColumnName, setSelectedColumnName] = useState('');
+
   useEffect(() => {
     if (parkData.length === 0) return;
 
@@ -22,7 +23,6 @@ function BarChartDataProcessing({ parkData }) {
       url: park.images[0].url,
     }));
 
-    // Process chart data
     const parkCounts = nationalParks.reduce((counts, park) => {
       let state;
       if (
@@ -46,8 +46,9 @@ function BarChartDataProcessing({ parkData }) {
         count,
       }))
       .sort((a, b) => a.state.localeCompare(b.state));
-
-    setBarChartData(parkCountsArray);
+    
+    const filterOutOtherStateData = parkCountsArray.filter(park => park.state !== "Other")
+    setBarChartData(filterOutOtherStateData);
 
     const parkNamesByStates = nationalParks.reduce((acc, park) => {
       if (!acc[park.state]) {
@@ -60,8 +61,6 @@ function BarChartDataProcessing({ parkData }) {
     setParkNamesByStates(parkNamesByStates);
   }, [parkData]);
 
-  // Rest of the code...
-  // Display Bar Chart
   const chartData = {
     labels: barChartData.map(
       (item) => stateAbbreviation[item.state] || item.state
@@ -157,7 +156,6 @@ function BarChartDataProcessing({ parkData }) {
     },
   };
 
-  // Print the column name which user clicked.
   const chartRef = useRef();
   const handleClick = (event) => {
     const index = getElementAtEvent(chartRef.current, event)[0]?.index;
@@ -165,6 +163,7 @@ function BarChartDataProcessing({ parkData }) {
     if (index !== undefined) {
       const stateName = stateNameToAbbreviations[chartData.labels[index]];
       const parkNames = parkNamesByStates[stateName];
+      setSelectedColumnName(chartData.labels[index]);
       setselectedStateParkNames(parkNames);
       setShowModal(true);
     } else {
@@ -177,6 +176,7 @@ function BarChartDataProcessing({ parkData }) {
   };
 
   return (
+    
     <div className="chart">
       <div className="chartDisplay1">
         <Bar
@@ -187,15 +187,15 @@ function BarChartDataProcessing({ parkData }) {
         />
       </div>
 
-      <Modal show={showModal} onHide={handleCloseModal} centered>
+      <Modal show={showModal} onHide={handleCloseModal} centered className="PopUpModal">
         <Modal.Header closeButton>
-          <Modal.Title>Parks</Modal.Title>
+          <Modal.Title>Parks at state {selectedColumnName} </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           {selectedStateParkNames.length > 0 ? (
             <div className="row">
               {selectedStateParkNames.map((item, index) => (
-                <div key={index} className="col-lg-6">
+                <div key={index} className={selectedStateParkNames.length > 10 ? "col-lg-6" : "col-lg-12"}>
                   <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }}>
                     <div className="park-item">
                       <img
@@ -213,11 +213,6 @@ function BarChartDataProcessing({ parkData }) {
             <p>No state park names selected.</p>
           )}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
