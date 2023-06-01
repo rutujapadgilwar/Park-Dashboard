@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
 import "./WeatherForecast.css";
+import "../../styles.css"
 import {
   WiCloudy,
   WiRain,
