@@ -11,7 +11,7 @@ const GenericChart = () => {
       <h1 className="text-center" style={{ marginBottom: "5rem" }}>
         Visualizations of all parks
       </h1>
-      <Container className="barchart">
+      <Container className="barchart" style={{ marginBottom: "5rem"}}>
         <Row>
           <h2 style={{ fontSize: "18px" }} className="text-center">
             Bar Chart: State Vs Park Counts

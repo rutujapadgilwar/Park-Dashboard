@@ -50,3 +50,6 @@
   overflow-y: auto;
 }
 
+.hover-link:hover {
+  color: black;
+}

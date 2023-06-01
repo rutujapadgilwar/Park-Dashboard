@@ -129,7 +129,7 @@ function BarChartDataProcessing({ parkData }) {
           "#311b92",
           "#b388ff",
           "#651fff",
-        ],
+        ]
       },
     ],
   };
@@ -194,7 +194,7 @@ function BarChartDataProcessing({ parkData }) {
             <div className="row">
               {selectedStateParkNames.map((item, index) => (
                 <div key={index} className={selectedStateParkNames.length > 10 ? "col-lg-6" : "col-lg-12"}>
-                  <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }}>
+                  <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }} style={{textDecoration: "none"}} className="hover-link">
                     <div className="park-item">
                       <img
                         src={item.url}
