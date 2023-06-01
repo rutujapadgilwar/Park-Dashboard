@@ -60,10 +60,20 @@ function Alerts(props) {
     );
   });
 
+  const noAlertsMessage = (
+    <Alert severity="info">
+      <AlertTitle>
+        {" "}
+        <strong>No alerts</strong>
+      </AlertTitle>
+      Great news! There are no active alerts for this park.
+    </Alert>
+  );
+
   return (
     <div>
       <Stack sx={{ width: "100%" }} className="scroll-y" spacing={2}>
-        {renderedAlerts}
+        {alerts.length > 0 ? renderedAlerts : noAlertsMessage}
       </Stack>
     </div>
   );
