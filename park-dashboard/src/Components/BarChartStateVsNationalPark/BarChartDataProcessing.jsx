@@ -9,7 +9,7 @@ import { Modal } from "react-bootstrap";
 function BarChartDataProcessing({ parkData }) {
   const [barChartData, setBarChartData] = useState([]);
   const [parkNamesByStates, setParkNamesByStates] = useState([]);
-  const [selectedStateParkNames, setselectedStateParkNames] = useState([]);
+  const [selectedStateParkNames, setSelectedStateParkNames] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedColumnName, setSelectedColumnName] = useState('');
 
@@ -19,42 +19,42 @@ function BarChartDataProcessing({ parkData }) {
     const nationalParks = parkData.map((park) => ({
       name: park.fullName,
       parkCode: park.parkCode,
-      state: park.states.split(",")[0],
+      stateName: park.states.split(",")[0],
       url: park.images[0].url,
     }));
 
     const parkCounts = nationalParks.reduce((counts, park) => {
-      let state;
+      let stateName;
       if (
-        park.state === "GU" ||
-        park.state === "PR" ||
-        park.state === "AS" ||
-        park.state === "VI" ||
-        park.state === "MP"
+        park.stateName === "GU" ||
+        park.stateName === "PR" ||
+        park.stateName === "AS" ||
+        park.stateName === "VI" ||
+        park.stateName === "MP"
       ) {
-        state = "Other";
+        stateName = "Other";
       } else {
-        state = park.state;
+        stateName = park.stateName;
       }
-      counts[state] = (counts[state] || 0) + 1;
+      counts[stateName] = (counts[stateName] || 0) + 1;
       return counts;
     }, {});
 
     const parkCountsArray = Object.entries(parkCounts)
-      .map(([state, count]) => ({
-        state,
-        count,
+      .map(([stateName, parkCounts]) => ({
+        stateName,
+        parkCounts,
       }))
-      .sort((a, b) => a.state.localeCompare(b.state));
+      .sort((a, b) => a.stateName.localeCompare(b.stateName));
     
-    const filterOutOtherStateData = parkCountsArray.filter(park => park.state !== "Other")
+    const filterOutOtherStateData = parkCountsArray.filter(park => park.stateName !== "Other")
     setBarChartData(filterOutOtherStateData);
 
     const parkNamesByStates = nationalParks.reduce((acc, park) => {
-      if (!acc[park.state]) {
-        acc[park.state] = [];
+      if (!acc[park.stateName]) {
+        acc[park.stateName] = [];
       }
-      acc[park.state].push(park);
+      acc[park.stateName].push(park);
       return acc;
     }, {});
 
@@ -63,11 +63,11 @@ function BarChartDataProcessing({ parkData }) {
 
   const chartData = {
     labels: barChartData.map(
-      (item) => stateAbbreviation[item.state] || item.state
+      (item) => stateAbbreviation[item.stateName] || item.stateName
     ),
     datasets: [
       {
-        data: barChartData.map((item) => item.count),
+        data: barChartData.map((item) => item.parkCounts),
         backgroundColor: [
           "#ff6384",
           "#36a2eb",
@@ -164,11 +164,9 @@ function BarChartDataProcessing({ parkData }) {
       const stateName = stateNameToAbbreviations[chartData.labels[index]];
       const parkNames = parkNamesByStates[stateName];
       setSelectedColumnName(chartData.labels[index]);
-      setselectedStateParkNames(parkNames);
+      setSelectedStateParkNames(parkNames);
       setShowModal(true);
-    } else {
-      console.log("Not clicked on a bar column");
-    }
+    } 
   };
 
   const handleCloseModal = () => {
@@ -189,7 +187,7 @@ function BarChartDataProcessing({ parkData }) {
 
       <Modal show={showModal} onHide={handleCloseModal} centered className="PopUpModal">
         <Modal.Header closeButton>
-          <Modal.Title>Parks at state {selectedColumnName} </Modal.Title>
+          <Modal.Title>Parks at stateName {selectedColumnName} </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           {selectedStateParkNames.length > 0 ? (
@@ -210,7 +208,7 @@ function BarChartDataProcessing({ parkData }) {
               ))}
             </div>
           ) : (
-            <p>No state park names selected.</p>
+            <p>No stateName park names selected.</p>
           )}
         </Modal.Body>
       </Modal>
