@@ -187,7 +187,7 @@ function BarChartDataProcessing({ parkData }) {
 
       <Modal show={showModal} onHide={handleCloseModal} centered className="PopUpModal">
         <Modal.Header closeButton>
-          <Modal.Title>Parks at stateName {selectedColumnName} </Modal.Title>
+          <Modal.Title>Parks at state {selectedColumnName} </Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           {selectedStateParkNames.length > 0 ? (
