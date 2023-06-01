@@ -7,7 +7,7 @@
     California: "CA",
     Colorado: "CO",
     Connecticut: "CT",
-    "Washington DC": "DC",
+    "DC": "DC",
     Delaware: "DE",
     Florida: "FL",
     Georgia: "GA",
