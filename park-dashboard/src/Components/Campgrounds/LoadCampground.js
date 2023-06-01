@@ -34,5 +34,6 @@ export const LoadCampgroundData = () => {
     };
     fetchCampgrounds();
   }, []);
+
   return campgrounds;
 };
