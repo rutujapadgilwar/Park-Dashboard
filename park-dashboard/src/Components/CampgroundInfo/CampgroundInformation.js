@@ -25,7 +25,6 @@ function CampgroundInformation(item) {
         <Box p={5}>
           <h4>Sorry, Not have any campground info</h4>
         </Box>
-        ;
       </div>
     );
   }
