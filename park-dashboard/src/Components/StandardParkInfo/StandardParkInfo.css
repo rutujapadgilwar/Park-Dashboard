@@ -10,6 +10,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
 }
 .more-info {
     display: flex;
@@ -50,7 +51,20 @@
     display: inline-block;
     margin-left: 10px;
   }
-  
+  .p-header {
+    font-weight: bold;
+    border-bottom: 1px solid;
+    font-size: 1.2rem;
+  }
+  a {
+    color: black;
+    cursor: pointer;
+
+  }
+
+  a:hover {
+    color: black;
+  }
   @media (max-width: 1000px) {
     .more-info {
       flex-direction: column;
