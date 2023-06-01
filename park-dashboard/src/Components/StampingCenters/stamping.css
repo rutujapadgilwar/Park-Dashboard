@@ -16,7 +16,8 @@
     width: 60%;
 }
 
-.center {
+.center-name {
+    list-style-type: none;
     margin-bottom: 10px;
     background-color: #f1f1f1;
     border: 1px solid black;
@@ -24,32 +25,25 @@
     width: 80%;
     text-align: center;
     cursor: pointer;
-
-}
-.center:hover{
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-
-}
-.center-name {
-    list-style-type: none;
     width: 100%;
     font-size: 18px;
     padding: 8px; 
+
 }
 .center-name:hover {
+    background-color: black;
+}
+.center-name:hover .center-link {
     color: white;
 }
+
 .center-link {
     color: black;
     text-decoration: none;
     cursor: pointer;
 
 }
-.center-link:hover {
-    color: white;
-}
+
 
 @media (max-width: 768px) {
     .passport-locations {

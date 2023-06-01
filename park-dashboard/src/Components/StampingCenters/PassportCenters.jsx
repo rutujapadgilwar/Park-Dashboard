@@ -29,9 +29,9 @@ const PassportCenters = (centers) => {
       </div>
       <div className="location-list">
         {stampingCenters.length > 0 ? (
+          <div className = "center">
           <ul>
             {stampingCenters.map((center) => (
-              <div className="center">
                 <div className="center-name">
                   <li>
                     <a class="center-link" href={center.parks[0].url}>
@@ -39,9 +39,9 @@ const PassportCenters = (centers) => {
                     </a>
                   </li>
                 </div>
-              </div>
             ))}
           </ul>
+          </div>
         ) : (
           <p>No stamping center found.</p>
         )}
