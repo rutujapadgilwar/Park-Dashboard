@@ -10,8 +10,12 @@ const StandardInfo = ({ parks, parkCode }) => {
 
 	const standardHours = [];
 	let description = "";
+	let directionInfo = "";
+	let weather = "";
 
 	stateWiseNationalParks.forEach((park) => {
+		directionInfo = park.directionsInfo;
+		weather = park.weatherInfo;
 		const operatingHours = park.operatingHours;
 
 		operatingHours.forEach((hours) => {
@@ -28,15 +32,26 @@ const StandardInfo = ({ parks, parkCode }) => {
 	return (
 		<div className="info-container">
 			<div className="info-description">
-				<p>{description}</p>
+				<p>
+					{description}
+					<hr /> {directionInfo}
+				</p>
 			</div>
+			<div className="more-info">	
 			<div className="info-hours">
-				<h2>Visit us on</h2>
-				{standardHours.map((time) => (
-					<div key={time.day}>
-						<span className="day">{time.day}:</span> {time.time}
-					</div>
-				))}
+				<div>
+					<h2>Our Operating Hours</h2>
+					{standardHours.map((time) => (
+						<div key={time.day}>
+							<span className="day">{time.day}:</span> {time.time}
+						</div>
+					))}
+				</div>
+			</div>
+			<div className="weather-info">
+				<h2>Weather Information</h2>
+					<p>{weather}</p>
+			</div>
 			</div>
 		</div>
 	);
