@@ -17,14 +17,11 @@ const CampgroundsChart = () => {
   })
   .filter((camp) => camp.address !== "");
 
-    console.log(stateWiseCampgrounds)
   const counts = stateWiseCampgrounds.reduce((acc, camp) => {
     const stateCode = camp.address;
     acc[stateCode] = (acc[stateCode] || 0) + 1;
     return acc;
   }, {});
-
-  console.log(counts)
 
   const filteredCounts = Object.entries(counts).filter(
     ([state, count]) => count >= 4
