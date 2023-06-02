@@ -1,6 +1,5 @@
 import React from "react";
 import { LoadCampgroundData } from "./LoadCampground";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 const CampgroundsChart = () => {
