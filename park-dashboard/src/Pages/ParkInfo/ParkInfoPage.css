@@ -78,21 +78,12 @@
   max-height: 50vh;
 }
 
-.alerts {
-  overflow-y: scroll;
-  max-height: 50vh;
-  width: 44vw;
-  margin-left: 16px;
-}
-.weather-forecast {
-  overflow-y: scroll;
-  max-height: 50vh;
-  width: 54vw;
+.passport-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media only screen and (max-width: 700px) {
-  .alerts,
-  .weather-forecast {
-    width: 95vw;
-  }
+.centered-container {
+  text-align: center;
 }
