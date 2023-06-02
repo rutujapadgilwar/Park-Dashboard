@@ -11,6 +11,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const useStyles = makeStyles((theme) => ({
   padding: {
     paddingTop: "70px",
+    paddingBottom: "100px",
   },
   modal: {
     display: "flex",
