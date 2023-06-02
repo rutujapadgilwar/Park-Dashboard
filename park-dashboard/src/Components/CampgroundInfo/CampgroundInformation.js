@@ -7,6 +7,9 @@ function CampgroundInformation(item) {
   const CampgroundInformation = LoadCampgroundData(item);
   const parkCode = item.parkCode;
   if (!CampgroundInformation || !parkCode) {
+    <Box p={5}>
+      <h4>Sorry, Not have any trail or things you can explore</h4>
+    </Box>;
     return null;
   }
   const campground = CampgroundInformation.filter(
