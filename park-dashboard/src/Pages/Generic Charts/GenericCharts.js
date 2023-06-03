@@ -4,7 +4,7 @@ import DesignationPolarArea from "../../Components/ParkDesignations/DesignationP
 import CampgroundsChart from "../../Components/Campgrounds/CampgroundsChart";
 import "./genericPage.css";
 import StateVsParks from "../../Components/BarChartStateVsNationalPark/StateVsParks";
-
+import AlertsVsParks from "../../Components/Alerts3dPieChart/AlertsVsAllPark";
 const GenericChart = () => {
   return (
     <div style={{ marginTop: "6rem" }}>
@@ -33,6 +33,14 @@ const GenericChart = () => {
             </h2>
             <CampgroundsChart className="py-5 campgrounds" />
           </Col>
+        </Row>
+      </Container>
+      <Container className="barchart" style={{ marginBottom: "5rem"}}>
+        <Row>
+          <h2 style={{ fontSize: "18px" }} className="text-center">
+            3D Pie Chart: Alerts Vs Park Counts
+          </h2>
+          <AlertsVsParks />
         </Row>
       </Container>
     </div>

@@ -2,6 +2,9 @@
   align-items: center;
 }
 
-.donut-chart {
-  justify-content: center;
+.activities {
+  height: 400px;
+}
+.alerts {
+  height: 400px;
 }
