@@ -10,6 +10,7 @@ import WeatherForecast from "../../Components/WeatherForecast/WeatherForecast";
 import ThingsToDo from "../../Components/ThingsToDo/ThingsToDo";
 import CampgroundInformation from "../../Components/CampgroundInfo/CampgroundInformation";
 import PassportCenters from "../../Components/StampingCenters/PassportCenters";
+import AirQuality from "../../Components/AirQuality/AirQuality";
 const ParkInfoPage = () => {
   let { parkCode } = useParams();
   return (
@@ -27,6 +28,13 @@ const ParkInfoPage = () => {
           <h2>Weather forecast</h2>
           <div className="weather-forecast">
             <WeatherForecast parkCode={parkCode}></WeatherForecast>
+          </div>
+        </div>
+
+        <div className="ActivityHeading">
+          <h2>Air Quality</h2>
+          <div className="air-quality">
+            <AirQuality parkCode={parkCode}></AirQuality>
           </div>
         </div>
       </div>
