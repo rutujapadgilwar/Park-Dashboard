@@ -26,13 +26,13 @@ const NationalParkChartPage = () => {
             </h2>
             <ActivitiesVsNP className="py-5 activities" />
           </Col>
-          <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
-              3D Pie Chart: Alerts Vs Park Counts
-            </h2>
-            <AlertsVsNationalParks className="py-5 campgrounds" />
-          </Col>
         </Row>
+        <Col>
+          <h2 style={{ fontSize: "18px" }} className="text-center">
+            3D Pie Chart: Alerts Vs National Park Counts
+          </h2>
+          <AlertsVsNationalParks className="alerts" />
+        </Col>
       </Container>
     </div>
   );

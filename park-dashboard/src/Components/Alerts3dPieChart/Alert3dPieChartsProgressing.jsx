@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Chart } from "react-google-charts";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import { LoadParkData } from "../../LoadParkData";
 import { Link } from "react-router-dom";
+import { LoadParkData } from "../../LoadParkData";
 
-function Alerts3dPieChartsProgressing({ alertData }) {
-  const [parkCountsPerAlertArray, setParkCountsPerAlertArray] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+const PieChartsProgressing = ({ alertData }) => {
   const parkData = LoadParkData();
-  useEffect(() => {
-    const parkAlertsData = alertData.map((alert) => ({
-      parkCode: alert.parkCode,
-      category: alert.category.split(",")[0],
-    }));
-    const filterParkCounts = parkAlertsData.filter(
-      (obj) => obj.category !== ""
-    );
-    const parkCounts = filterParkCounts.reduce((AlertsCategory, alert) => {
-      AlertsCategory[alert.category] =
-        (AlertsCategory[alert.category] || 0) + 1;
-      return AlertsCategory;
-    }, {});
+  const categoryCounts = alertData.reduce((counts, alert) => {
+    const category = alert.category.split(",")[0];
+    if (category !== "") {
+        counts[category] = (counts[category] || 0) + 1;
+      }
+    return counts;
+  }, {});
 
-    const parkCountsPerAlertArray = Object.entries(parkCounts).map(
-      ([AlertsCategory, Alertscount]) => ({
-        AlertsCategory,
-        Alertscount,
-      })
-    );
-    setParkCountsPerAlertArray(parkCountsPerAlertArray);
-  }, [alertData]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleChartClick = (chartWrapper) => {
     const chart = chartWrapper.getChart();
@@ -59,25 +43,22 @@ function Alerts3dPieChartsProgressing({ alertData }) {
       return park
         ? {
             name: park.name,
-            // parkCode: park.parkCode,
-            // imageUrl: park.images[0].url,
-            // parkCode: park.parkCode,
+            parkCode: park.parkCode,
+            imageUrl: park.images.length > 0 ? park.images[0].url : "",
           }
         : null;
     });
-
   const AlertCountData = [
-    ["AlertsCategory", "Alertscount"],
-    ...parkCountsPerAlertArray.map(({ AlertsCategory, Alertscount }) => [
-      AlertsCategory,
-      Alertscount,
-    ]),
-  ];
-
-  const colors = ["#58CB8E", "#36a2eb", "#FF0000", "#FFD433"];
-
+    ["AlertsCategory", "Park Count"],
+    ["Information", categoryCounts["Information"] || 0],
+    ["Danger", categoryCounts["Danger"] || 0],
+    ["Park Closure", categoryCounts["Park Closure"] || 0],
+    ["Caution", categoryCounts["Caution"] || 0]
+ 
+  ];  
+  const colors = ["#017CDC", "#FF0000", "#237D02", "#F1DC05"];
   return (
-    <div className="PieChart">
+    <div className="chart">
       <Chart
         chartType="PieChart"
         data={AlertCountData}
@@ -94,52 +75,47 @@ function Alerts3dPieChartsProgressing({ alertData }) {
           },
         ]}
       />
-
-      <Modal show={showModal} onHide={handleCloseModal} centered>
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        centered
+        className="PopUpModal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Parks in {selectedCategory} category</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
           {parkNames.length > 0 ? (
             <div className="row">
-              {parkNames.map((item, index) => (
+              {parkNames.map((parkName, index) => (
                 <div
                   key={index}
-                  className={
-                    parkNames.length > 10
-                      ? "col-lg-6"
-                      : "col-lg-12"
-                  }
+                  className={parkNames.length > 10 ? "col-lg-6" : "col-lg-12"}
                 >
-                  {/* <Link
-                    to={{ pathname: `/parkInfoPage/${item.parkCode}` }}
+                  <Link
+                    to={{ pathname: `/parkInfoPage/${parkName.parkCode}` }}
                     style={{ textDecoration: "none" }}
                     className="hover-link"
-                  > */}
+                  >
                     <div className="park-item">
-                      {/* <img
-                        src={item.imageUrl}
-                        alt={item.name}
+                      <img
+                        src={parkName.imageUrl}
+                        alt={parkName.name}
                         className="park-image"
-                      /> */}
-                      <span className="park-name">{item}</span>
+                      />
+                      <span className="park-name">{parkName.name}</span>
                     </div>
-                  {/* </Link> */}
+                  </Link>
                 </div>
               ))}
             </div>
           ) : (
-            <p>No stateName park names selected.</p>
+            <p>No park names available.</p>
           )}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
-}
+};
 
-export default Alerts3dPieChartsProgressing;
+export default PieChartsProgressing;

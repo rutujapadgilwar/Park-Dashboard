@@ -35,13 +35,13 @@ const GenericChart = () => {
           </Col>
         </Row>
       </Container>
-      <Container className="barchart" style={{ marginBottom: "5rem"}}>
-        <Row>
+      <Container style={{ marginBottom: "5rem", marginTop: "12rem"}}>
+        <Col>
           <h2 style={{ fontSize: "18px" }} className="text-center">
             3D Pie Chart: Alerts Vs Park Counts
           </h2>
           <AlertsVsParks />
-        </Row>
+        </Col>
       </Container>
     </div>
   );
