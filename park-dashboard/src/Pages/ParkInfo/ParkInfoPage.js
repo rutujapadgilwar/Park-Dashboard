@@ -12,53 +12,54 @@ import CampgroundInformation from "../../Components/CampgroundInfo/CampgroundInf
 import StandardInfo from "../../Components/StandardParkInfo/StandardInfo";
 import PassportCenters from "../../Components/StampingCenters/PassportCenters";
 const ParkInfoPage = () => {
-  let { parkCode } = useParams();
-  return (
-    <div>
-      <PhotoCarousel parkCode={parkCode}></PhotoCarousel>
-      <ParkNameHeading parkCode={parkCode}></ParkNameHeading>
-      <div class="info-container">
-        <StandardInfo parkCode={parkCode} />
-      </div>
-      <div className="container">
-        <div className="left-col">
-          <h2>Alets</h2>
-          <Alerts parkCode={parkCode}></Alerts>
-        </div>
-        <div className="right-col">
-          <h2>Weather Forecast</h2>
-          <WeatherForecast parkCode={parkCode}></WeatherForecast>
-        </div>
-      </div>
-      <div className="gridContainer">
-        <div className="ActivityHeading">
-          <h2>To-Do Activities</h2>
-          <div className="parkActivities">
-            <ParkActivities parkCode={parkCode}></ParkActivities>
-          </div>
-        </div>
-        <div className="ActivityHeading">
-          <h2>Things to explore</h2>
-          <div className="thingsTodo">
-            <ThingsToDo parkCode={parkCode}></ThingsToDo>
-          </div>
-        </div>
-        <div className="ActivityHeading">
-          <h2>Campgrounds and More</h2>
-          <div className="campground">
-            <CampgroundInformation parkCode={parkCode}></CampgroundInformation>
-          </div>
-        </div>
-      </div>
-      <div className="passport-container">
-        <div className="centered-container">
-          <div className="PassportStamping">
-            <h2>Collect your National Park stamps!</h2>
-            <PassportCenters parkCode={parkCode} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+	let { parkCode } = useParams();
+	return (
+		<div>
+			<PhotoCarousel parkCode={parkCode}></PhotoCarousel>
+			<ParkNameHeading parkCode={parkCode}></ParkNameHeading>
+			<div className="container">
+				<div className="left-col">
+					<h2>Alets</h2>
+					<Alerts parkCode={parkCode}></Alerts>
+				</div>
+				<div className="right-col">
+					<h2>Weather Forecast</h2>
+					<WeatherForecast parkCode={parkCode}></WeatherForecast>
+				</div>
+			</div>
+			<div className="gridContainer">
+				<div className="ActivityHeading">
+					<h2>To-Do Activities</h2>
+					<div className="parkActivities">
+						<ParkActivities parkCode={parkCode}></ParkActivities>
+					</div>
+				</div>
+				<div className="ActivityHeading">
+					<h2>Things to explore</h2>
+					<div className="thingsTodo">
+						<ThingsToDo parkCode={parkCode}></ThingsToDo>
+					</div>
+				</div>
+				<div className="ActivityHeading">
+					<h2>Campgrounds and More</h2>
+					<div className="campground">
+						<CampgroundInformation parkCode={parkCode}></CampgroundInformation>
+					</div>
+				</div>
+			</div>
+			<div class="info-container">
+      <h2 className = "text-center my-3">Standard Park Information</h2>
+				<StandardInfo parkCode={parkCode} />
+			</div>
+			<div className="passport-container">
+				<div className="centered-container">
+					<div className="PassportStamping">
+						<h2 className = "my-3">Collect your National Park stamps!</h2>
+						<PassportCenters parkCode={parkCode} />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 export default ParkInfoPage;
