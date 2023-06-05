@@ -5,9 +5,11 @@ import ReactSpeedometer from "react-d3-speedometer";
 
 function AirQuality(props) {
   const [aqi, setAqi] = useState(0);
-  const [condition, setCondition] = useState();
-  const [description, setDescription] = useState();
-  const [color, setColor] = useState();
+  const [condition, setCondition] = useState("No Data available");
+  const [description, setDescription] = useState(
+    "Sorry, the air quality couldn't be fetched currently"
+  );
+  const [color, setColor] = useState("#ff000050");
 
   const parkCode = props.parkCode;
 
@@ -47,12 +49,18 @@ function AirQuality(props) {
           "The air quality is significantly compromised, and there is a higher risk of respiratory problems and other health issues for the general population.",
         color: "#64017950",
       };
-    } else {
+    } else if (aqi > 300) {
       return {
         condition: "Hazardous (>300)",
         description:
           "Air quality is severely polluted, posing a significant risk to everyone's health, not just those with pre-existing conditions.",
         color: "#9e010350",
+      };
+    } else {
+      return {
+        condition: "No Data available",
+        description: "",
+        color: "#ff000050",
       };
     }
   };
