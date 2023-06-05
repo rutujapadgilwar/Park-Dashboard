@@ -13,7 +13,7 @@ const GenericChart = () => {
       </h1>
       <Container className="barchart" style={{ marginBottom: "5rem"}}>
         <Row>
-          <h2 style={{ fontSize: "18px" }} className="text-center">
+          <h2 style={{ fontSize: "24px" }} className="text-center">
             Bar Chart: State Vs Park Counts
           </h2>
           <StateVsParks />
@@ -22,23 +22,23 @@ const GenericChart = () => {
       <Container>
         <Row>
           <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
+            <h2 style={{ fontSize: "24px" }} className="text-center">
               Polar Area Chart: Park Designations
             </h2>
             <DesignationPolarArea className="py-5 designations" />
           </Col>
           <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
+            <h2 style={{ fontSize: "24px" }} className="text-center">
               Pie Chart: Campgrounds
             </h2>
             <CampgroundsChart className="py-5 campgrounds" />
           </Col>
         </Row>
       </Container>
-      <Container style={{ marginBottom: "5rem", marginTop: "12rem"}}>
+      <Container style={{ marginBottom: "5rem", marginTop: "18rem"}}>
         <Col>
-          <h2 style={{ fontSize: "18px" }} className="text-center">
-            3D Pie Chart: Alerts Vs Park Counts
+          <h2 style={{ fontSize: "24px", marrginTop:"-70px" }} className="text-center">
+            3D Pie Chart: Alerts counts per category
           </h2>
           <AlertsVsParks />
         </Col>

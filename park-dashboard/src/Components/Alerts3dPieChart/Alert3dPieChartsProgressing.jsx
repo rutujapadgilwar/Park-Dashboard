@@ -9,11 +9,10 @@ const PieChartsProgressing = ({ alertData }) => {
   const categoryCounts = alertData.reduce((counts, alert) => {
     const category = alert.category.split(",")[0];
     if (category !== "") {
-        counts[category] = (counts[category] || 0) + 1;
-      }
+      counts[category] = (counts[category] || 0) + 1;
+    }
     return counts;
   }, {});
-
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -37,25 +36,35 @@ const PieChartsProgressing = ({ alertData }) => {
   };
 
   const parkNames = alertData
-    .filter((alert) => alert.category.split(",")[0] === selectedCategory)
-    .map((alert) => {
+    .filter(
+      (alert) =>
+        alert.category.split(",")[0] === selectedCategory &&
+        alert.parkCode !== ""
+    )
+    .reduce((uniqueParks, alert) => {
       const park = parkData.find((park) => park.parkCode === alert.parkCode);
-      return park
-        ? {
+      if (park) {
+        const parkExists = uniqueParks.some(
+          (uniquePark) => uniquePark.parkCode === park.parkCode
+        );
+        if (!parkExists) {
+          uniqueParks.push({
             name: park.name,
             parkCode: park.parkCode,
             imageUrl: park.images.length > 0 ? park.images[0].url : "",
-          }
-        : null;
-    });
+          });
+        }
+      }
+      return uniqueParks;
+    }, []);
+  const filterParkNames = parkNames.filter((park) => park !== null);
   const AlertCountData = [
     ["AlertsCategory", "Park Count"],
     ["Information", categoryCounts["Information"] || 0],
     ["Danger", categoryCounts["Danger"] || 0],
     ["Park Closure", categoryCounts["Park Closure"] || 0],
-    ["Caution", categoryCounts["Caution"] || 0]
- 
-  ];  
+    ["Caution", categoryCounts["Caution"] || 0],
+  ];
   const colors = ["#017CDC", "#FF0000", "#237D02", "#F1DC05"];
   return (
     <div className="chart">
@@ -65,6 +74,7 @@ const PieChartsProgressing = ({ alertData }) => {
         options={{
           is3D: true,
           colors: colors,
+          pieSliceText: "percentage",
         }}
         width="100%"
         height="500px"
@@ -82,15 +92,17 @@ const PieChartsProgressing = ({ alertData }) => {
         className="PopUpModal"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Parks in {selectedCategory} category</Modal.Title>
+          <Modal.Title>Parks in "{selectedCategory}" category</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body">
-          {parkNames.length > 0 ? (
+          {filterParkNames.length > 0 ? (
             <div className="row">
-              {parkNames.map((parkName, index) => (
+              {filterParkNames.map((parkName, index) => (
                 <div
                   key={index}
-                  className={parkNames.length > 10 ? "col-lg-6" : "col-lg-12"}
+                  className={
+                    filterParkNames.length > 10 ? "col-lg-6" : "col-lg-12"
+                  }
                 >
                   <Link
                     to={{ pathname: `/parkInfoPage/${parkName.parkCode}` }}

@@ -10,29 +10,33 @@ const NationalParkChartPage = () => {
       <h1 className="text-center" style={{ marginBottom: "5rem" }}>
         Visualizations of all parks
       </h1>
-      <Container className="barchart" centered style={{ marginBottom: "4rem" }}>
+      <Container className="barchart" centered style={{ marginBottom: "6rem" }}>
         <Row>
-          <h2 style={{ fontSize: "18px" }} className="text-center">
+          <h2 style={{ fontSize: "24px" }} className="text-center">
             Bar Chart: State Vs Park Counts
           </h2>
           <StateVsNationalParks />
         </Row>
       </Container>
-      <Container>
+      <Container style={{ justifyContent: "space-around" }}>
         <Row>
-          <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
-              Donut Chart: Activities vs National Parks
-            </h2>
-            <ActivitiesVsNP className="py-5 activities" />
+          <Col xs={12} md={6}>
+            <div style={{ width: "100%", height: "55vh", paddingTop: "70px" }}>
+              <h1 className="text-center" style={{ marginBottom: "-60px" }}>
+                Activities vs National Parks
+              </h1>
+              <ActivitiesVsNP />
+            </div>
+          </Col>
+          <Col xs={12} md={6}>
+            <div style={{ width: "100%", height: "55vh", paddingTop: "70px" }}>
+              <h2 className="text-center" style={{ marrginTop:"-70px" }}>
+                3D Pie Chart: Alerts counts per category
+              </h2>
+              <AlertsVsNationalParks />
+            </div>
           </Col>
         </Row>
-        <Col>
-          <h2 style={{ fontSize: "18px" }} className="text-center">
-            3D Pie Chart: Alerts Vs National Park Counts
-          </h2>
-          <AlertsVsNationalParks className="alerts" />
-        </Col>
       </Container>
     </div>
   );
