@@ -1,3 +1,27 @@
+vis-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+vis-title::first-line {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+chart-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+chart-title::first-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.header {
+  border-bottom: 2px solid red;
+}
 .designations {
   height: 400px;
 }
