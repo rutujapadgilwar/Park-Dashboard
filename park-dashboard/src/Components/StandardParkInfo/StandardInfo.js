@@ -5,7 +5,7 @@ import "./StandardParkInfo.css";
 const StandardInfo = ({ parks, parkCode }) => {
   const parkData = LoadParkData(parks);
   const stateWiseNationalParks = parkData.filter(
-    (park) => park.designation === "National Park" && park.parkCode === parkCode
+    (park) => park.parkCode === parkCode
   );
 
   let description = "";
@@ -36,32 +36,54 @@ const StandardInfo = ({ parks, parkCode }) => {
       <div className="info-description">
         <p>
           <span className="p-header">Standard Opening Information: </span>
-          {description}
+          {description ? (
+            <span>{description}</span>
+          ) : (
+            <span>No standard info available.</span>
+          )}
           <hr />
-          <span className="p-header">Park Directions Information: </span>{" "}
-          {directionInfo}
+          <span className="p-header">Park Directions Information: </span>
+          {directionInfo ? (
+            <span>{directionInfo}</span>
+          ) : (
+            <span>No directions info available.</span>
+          )}
           <br />
-          Checkout the:{" "}
-          <a className="direction-url" href={directionsUrl} target="_blank">
-            Directions URL
-          </a>
+          {directionsUrl ? (
+            <a className="direction-url" href={directionsUrl} target="_blank">
+              Directions URL
+            </a>
+          ) : (
+            <span>No directions URL available.</span>
+          )}
         </p>
       </div>
       <div className="more-info">
         <div className="info-hours">
           <div>
-            <h2>Our Operating Hours</h2>
-            {standardHours &&
+            <h2 className="info-title">
+              <span className="header">Our Operating Hours</span>
+            </h2>
+            {standardHours && standardHours.length > 0 ? (
               standardHours.map((time) => (
                 <div key={time.day}>
                   <span className="day">{time.day}:</span> {time.time}
                 </div>
-              ))}
+              ))
+            ) : (
+              <div>No standard hours available.</div>
+            )}
           </div>
         </div>
         <div className="weather-info">
-          <h2>Weather Specific Information</h2>
-          <p>{weather}</p>
+          <h2 className="info-title">
+            <span className="header">Weather Specific Information</span>
+          </h2>
+          {weather ? (
+            <p>{weather}</p>
+          ) : (
+            <p>No weather information available.</p>
+          )}
         </div>
       </div>
     </div>

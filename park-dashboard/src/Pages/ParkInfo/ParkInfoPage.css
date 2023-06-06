@@ -3,11 +3,10 @@ h2 {
   margin-bottom: 1rem;
 }
 h2::first-letter {
-  font-size: 2rem; 
-  font-weight: bold; 
-  line-height: 1; 
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
   text-transform: uppercase;
-
 }
 .header {
   border-bottom: 2px solid red;
