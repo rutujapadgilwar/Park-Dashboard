@@ -77,7 +77,7 @@ const PieChartsProgressing = ({ alertData }) => {
           pieSliceText: "percentage",
         }}
         width="100%"
-        height="500px"
+        height="400px"
         chartEvents={[
           {
             eventName: "select",

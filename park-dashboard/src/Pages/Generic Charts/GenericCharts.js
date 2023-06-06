@@ -8,10 +8,10 @@ import AlertsVsParks from "../../Components/Alerts3dPieChart/AlertsVsAllPark";
 const GenericChart = () => {
   return (
     <div style={{ marginTop: "6rem" }}>
-      <h1 className="text-center" style={{ marginBottom: "5rem" }}>
+      <h1 className="text-center my-5 vis-title">
         Visualizations of all parks
       </h1>
-      <Container className="barchart" style={{ marginBottom: "5rem"}}>
+      <Container className="barchart" style={{ marginBottom: "5rem" }}>
         <Row>
           <h2 style={{ fontSize: "24px" }} className="text-center">
             Bar Chart: State Vs Park Counts

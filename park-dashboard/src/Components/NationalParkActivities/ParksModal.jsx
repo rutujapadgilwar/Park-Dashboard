@@ -61,33 +61,38 @@ function ParksModal(props) {
       <Modal.Header closeButton>
         <h1>{props.activityName}</h1>
       </Modal.Header>
-      <div className={classes.partialScreen}>
-        <img
-          src={getActivityImage(props.activityName)}
-          alt={props.activityName}
-          className={classes.imageSize}
-        />
+      <Modal.Body>
+        <div className={classes.partialScreen}>
+          <img
+            src={getActivityImage(props.activityName)}
+            alt={props.activityName}
+            className={classes.imageSize}
+          />
 
-        {Object.keys(sortedStatePark)
-          .sort()
-          .map((state) => (
-            <div key={stateAbbreviation[state]} className={classes.parksMargin}>
-              <h3>{stateAbbreviation[state]}</h3>
-              <ul>
-                {sortedStatePark[state].map((park) => (
-                  <li key={park.fullName}>
-                    <Link
-                      style={linkStyle}
-                      to={`/parkInfoPage/${park.parkCode}`}
-                    >
-                      {park.fullName}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-      </div>
+          {Object.keys(sortedStatePark)
+            .sort()
+            .map((state) => (
+              <div
+                key={stateAbbreviation[state]}
+                className={classes.parksMargin}
+              >
+                <h3>{stateAbbreviation[state]}</h3>
+                <ul>
+                  {sortedStatePark[state].map((park) => (
+                    <li key={park.fullName}>
+                      <Link
+                        style={linkStyle}
+                        to={`/parkInfoPage/${park.parkCode}`}
+                      >
+                        {park.fullName}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+        </div>
+      </Modal.Body>
     </Modal>
   );
 }

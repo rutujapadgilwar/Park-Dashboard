@@ -1,8 +1,8 @@
 import React from "react";
 import BarChartDataProcessing from "./BarChartDataProcessing";
-import { LoadParkData  } from "../../LoadParkData";
+import { LoadParkData } from "../../LoadParkData";
 function StateVsNationalParks() {
-  const parkData = LoadParkData()
+  const parkData = LoadParkData();
   const nationalParkFilter = parkData.filter(
     (park) => park.designation === "National Park"
   );

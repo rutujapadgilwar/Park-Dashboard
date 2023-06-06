@@ -5,16 +5,16 @@ import { Pie } from "react-chartjs-2";
 const CampgroundsChart = () => {
   const campgroundsData = LoadCampgroundData();
   const stateWiseCampgrounds = campgroundsData
-  .map((camp) => {
-    const physicalAddress = camp.addresses.find(
-      (address) => address.type === "Physical"
-    );
+    .map((camp) => {
+      const physicalAddress = camp.addresses.find(
+        (address) => address.type === "Physical"
+      );
 
-    return {
-      address: physicalAddress ? physicalAddress.stateCode : "",
-    };
-  })
-  .filter((camp) => camp.address !== "");
+      return {
+        address: physicalAddress ? physicalAddress.stateCode : "",
+      };
+    })
+    .filter((camp) => camp.address !== "");
 
   const counts = stateWiseCampgrounds.reduce((acc, camp) => {
     const stateCode = camp.address;
@@ -78,7 +78,11 @@ const CampgroundsChart = () => {
 
   return (
     <div>
-      <Pie className="py-3" data={chartData} style={{ height: "300px" }} />
+      <Pie
+        className="py-3"
+        data={chartData}
+        style={{ height: "300px", marginBottom: "100px" }}
+      />
     </div>
   );
 };

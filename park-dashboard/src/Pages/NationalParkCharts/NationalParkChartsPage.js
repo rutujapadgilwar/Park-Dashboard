@@ -7,7 +7,7 @@ import AlertsVsNationalParks from "../../Components/Alerts3dPieChart/AlertsVsNat
 const NationalParkChartPage = () => {
   return (
     <div style={{ marginTop: "6rem" }}>
-      <h1 className="text-center" style={{ marginBottom: "5rem" }}>
+      <h1 className="text-center my-5 vis-title">
         Visualizations of all parks
       </h1>
       <Container className="barchart" centered style={{ marginBottom: "6rem" }}>
@@ -18,19 +18,19 @@ const NationalParkChartPage = () => {
           <StateVsNationalParks />
         </Row>
       </Container>
-      <Container style={{ justifyContent: "space-around" }}>
+      <Container>
         <Row>
-          <Col xs={12} md={6}>
-            <div style={{ width: "100%", height: "55vh", paddingTop: "70px" }}>
-              <h1 className="text-center" style={{ marginBottom: "-60px" }}>
+          <Col xs ={12} md={6}>
+            <div style={{ width: "100%", height: "100%", paddingTop: "50px", paddingLeft: "20px" }}>
+              <h2 className="text-center" style={{ marginBottom: "-50px" }}>
                 Activities vs National Parks
-              </h1>
-              <ActivitiesVsNP />
+              </h2>
+              <ActivitiesVsNP className="activities"/>
             </div>
           </Col>
           <Col xs={12} md={6}>
-            <div style={{ width: "100%", height: "55vh", paddingTop: "70px" }}>
-              <h2 className="text-center" style={{ marrginTop:"-70px" }}>
+            <div style={{ width: "100%", height: "100%", paddingTop: "50px", paddingLeft: "70px" }}>
+              <h2 className="text-center" style={{ marginBottom: "10px" }}>
                 3D Pie Chart: Alerts counts per category
               </h2>
               <AlertsVsNationalParks />

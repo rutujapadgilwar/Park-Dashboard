@@ -10,7 +10,7 @@ function ThingsToDo(item) {
   if (!ThingsToDoData || !parkCode) {
     <Box p={5}>
       <h4>Sorry, Not have any trail or things you can explore</h4>
-    </Box>
+    </Box>;
     return null;
   }
   const park = ThingsToDoData.filter(
@@ -29,7 +29,6 @@ function ThingsToDo(item) {
         <Box p={5}>
           <h4>Sorry, Not have any trail or things you can explore</h4>
         </Box>
-        ;
       </div>
     );
   }
@@ -57,7 +56,11 @@ function ThingsToDo(item) {
           </CardContent>
           <CardActions>
             {item.url && (
-              <Button key={item.id} size="small" onClick={() => openUrl(item.url)}>
+              <Button
+                key={item.id}
+                size="small"
+                onClick={() => openUrl(item.url)}
+              >
                 Learn More
               </Button>
             )}
