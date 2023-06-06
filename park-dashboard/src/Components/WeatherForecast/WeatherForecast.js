@@ -88,7 +88,7 @@ function WeatherForecast(item) {
   const groupDataByDay = (data) => {
     const groupedData = {};
     data.forEach((item) => {
-      const date = moment(item.dt_txt).format("YYYY-MM-DD");
+      const date = moment(item.dt_txt).format("MMMM-DD");
       if (!groupedData[date]) {
         groupedData[date] = {
           minTemperature: [],
