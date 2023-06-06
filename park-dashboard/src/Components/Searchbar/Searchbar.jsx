@@ -31,8 +31,12 @@ const Searchbar = (parks) => {
     <div
       {...innerProps}
       style={{
-        backgroundColor: isFocused ? "#008000" : isSelected ? "#f1f1f1" : "white",
-        padding: "0.5rem"
+        backgroundColor: isFocused
+          ? "#008000"
+          : isSelected
+          ? "#f1f1f1"
+          : "white",
+        padding: "0.5rem",
       }}
     >
       <Link
@@ -48,7 +52,6 @@ const Searchbar = (parks) => {
       </Link>
     </div>
   );
-
 
   return (
     <div className="searchbar">
