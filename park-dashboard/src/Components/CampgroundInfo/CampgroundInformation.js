@@ -1,5 +1,5 @@
 import React from "react";
-import { LoadCampgroundData } from "../Campgrounds/LoadCampground";
+import { LoadCampgroundData } from "./LoadCampgroundData";
 import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";

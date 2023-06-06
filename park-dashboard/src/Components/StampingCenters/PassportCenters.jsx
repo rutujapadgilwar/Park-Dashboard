@@ -23,7 +23,7 @@ const PassportCenters = (centers) => {
   }
 
   return (
-    <div className="passport-locations">
+    <div className="passport-locations" style={{ marginBottom: "100px" }}>
       <div className="stamping-image">
         <img className="stamp" src={stampImage} alt="Stamping-Logo" />
       </div>

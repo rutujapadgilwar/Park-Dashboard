@@ -78,7 +78,11 @@ const CampgroundsChart = () => {
 
   return (
     <div>
-      <Pie className="py-3" data={chartData} style={{ height: "300px" }} />
+      <Pie
+        className="py-3"
+        data={chartData}
+        style={{ height: "300px", marginBottom: "100px" }}
+      />
     </div>
   );
 };
