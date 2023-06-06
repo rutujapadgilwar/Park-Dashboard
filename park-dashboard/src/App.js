@@ -28,7 +28,6 @@ function App() {
           />
           <Route exact path="/AboutUs" element={<AboutUs />} />
         </Routes>
-
         <Footer />
       </div>
     </BrowserRouter>

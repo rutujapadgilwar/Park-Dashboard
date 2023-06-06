@@ -9,6 +9,7 @@ import ParkNameHeading from "../../Components/ParkNameHeading/ParkNameHeading";
 import WeatherForecast from "../../Components/WeatherForecast/WeatherForecast";
 import ThingsToDo from "../../Components/ThingsToDo/ThingsToDo";
 import CampgroundInformation from "../../Components/CampgroundInfo/CampgroundInformation";
+import StandardInfo from "../../Components/StandardParkInfo/StandardInfo";
 import PassportCenters from "../../Components/StampingCenters/PassportCenters";
 import AirQuality from "../../Components/AirQuality/AirQuality";
 const ParkInfoPage = () => {
@@ -19,20 +20,26 @@ const ParkInfoPage = () => {
       <ParkNameHeading parkCode={parkCode}></ParkNameHeading>
       <div className="gridContainer">
         <div className="ActivityHeading">
-          <h2>Alerts</h2>
+          <h2 className="my-3">
+            <span className="header">Alerts</span>
+          </h2>
           <div className="alerts">
             <Alerts parkCode={parkCode}></Alerts>
           </div>
         </div>
         <div className="ActivityHeading">
-          <h2>Weather forecast</h2>
+          <h2 className="my-3">
+            <span className="header">Weather forecast</span>
+          </h2>
           <div className="weather-forecast">
             <WeatherForecast parkCode={parkCode}></WeatherForecast>
           </div>
         </div>
 
         <div className="ActivityHeading">
-          <h2>Air Quality</h2>
+          <h2 className="my-3">
+            <span className="header">Air Quality</span>
+          </h2>
           <div className="air-quality">
             <AirQuality parkCode={parkCode}></AirQuality>
           </div>
@@ -40,28 +47,46 @@ const ParkInfoPage = () => {
       </div>
       <div className="gridContainer">
         <div className="ActivityHeading">
-          <h2>To-Do Activities</h2>
+          <h2 className="my-3">
+            <span className="header">To-Do Activities</span>
+          </h2>
+
           <div className="parkActivities">
             <ParkActivities parkCode={parkCode}></ParkActivities>
           </div>
         </div>
         <div className="ActivityHeading">
-          <h2>Things to explore</h2>
+          <h2 className="my-3">
+            <span className="header">Things to explore</span>
+          </h2>
+
           <div className="thingsTodo">
             <ThingsToDo parkCode={parkCode}></ThingsToDo>
           </div>
         </div>
         <div className="ActivityHeading">
-          <h2>Campgrounds and More</h2>
+          <h2>
+            <span className="header">Campgrounds and More</span>
+          </h2>
+
           <div className="campground">
             <CampgroundInformation parkCode={parkCode}></CampgroundInformation>
           </div>
         </div>
       </div>
+
+      <div class="info-container">
+        <h2 className="text-center my-3">
+          <span className="header">Standard Park Information</span>
+        </h2>
+        <StandardInfo parkCode={parkCode} />
+      </div>
       <div className="passport-container">
         <div className="centered-container">
           <div className="PassportStamping">
-            <h2>Collect your National Park stamps!</h2>
+            <h2 className="my-3">
+              <span className="header">Collect your National Park stamps!</span>
+            </h2>
             <PassportCenters parkCode={parkCode} />
           </div>
         </div>

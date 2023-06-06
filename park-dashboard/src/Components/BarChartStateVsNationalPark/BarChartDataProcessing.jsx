@@ -11,7 +11,7 @@ function BarChartDataProcessing({ parkData }) {
   const [parkNamesByStates, setParkNamesByStates] = useState([]);
   const [selectedStateParkNames, setSelectedStateParkNames] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [selectedColumnName, setSelectedColumnName] = useState('');
+  const [selectedColumnName, setSelectedColumnName] = useState("");
 
   useEffect(() => {
     if (parkData.length === 0) return;
@@ -46,8 +46,10 @@ function BarChartDataProcessing({ parkData }) {
         parkCounts,
       }))
       .sort((a, b) => a.stateName.localeCompare(b.stateName));
-    
-    const filterOutOtherStateData = parkCountsArray.filter(park => park.stateName !== "Other")
+
+    const filterOutOtherStateData = parkCountsArray.filter(
+      (park) => park.stateName !== "Other"
+    );
     setBarChartData(filterOutOtherStateData);
 
     const parkNamesByStates = nationalParks.reduce((acc, park) => {
@@ -129,7 +131,7 @@ function BarChartDataProcessing({ parkData }) {
           "#311b92",
           "#b388ff",
           "#651fff",
-        ]
+        ],
       },
     ],
   };
@@ -166,7 +168,7 @@ function BarChartDataProcessing({ parkData }) {
       setSelectedColumnName(chartData.labels[index]);
       setSelectedStateParkNames(parkNames);
       setShowModal(true);
-    } 
+    }
   };
 
   const handleCloseModal = () => {
@@ -174,7 +176,6 @@ function BarChartDataProcessing({ parkData }) {
   };
 
   return (
-    
     <div className="chart">
       <div className="chartDisplay1">
         <Bar
@@ -185,7 +186,12 @@ function BarChartDataProcessing({ parkData }) {
         />
       </div>
 
-      <Modal show={showModal} onHide={handleCloseModal} centered className="PopUpModal">
+      <Modal
+        show={showModal}
+        onHide={handleCloseModal}
+        centered
+        className="PopUpModal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>Parks at state {selectedColumnName} </Modal.Title>
         </Modal.Header>
@@ -193,8 +199,19 @@ function BarChartDataProcessing({ parkData }) {
           {selectedStateParkNames.length > 0 ? (
             <div className="row">
               {selectedStateParkNames.map((item, index) => (
-                <div key={index} className={selectedStateParkNames.length > 10 ? "col-lg-6" : "col-lg-12"}>
-                  <Link to={{ pathname: `/parkInfoPage/${item.parkCode}` }} style={{textDecoration: "none"}} className="hover-link">
+                <div
+                  key={index}
+                  className={
+                    selectedStateParkNames.length > 10
+                      ? "col-lg-6"
+                      : "col-lg-12"
+                  }
+                >
+                  <Link
+                    to={{ pathname: `/parkInfoPage/${item.parkCode}` }}
+                    style={{ textDecoration: "none" }}
+                    className="hover-link"
+                  >
                     <div className="park-item">
                       <img
                         src={item.url}

@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = "https://developer.nps.gov/api/v1";
 const API_KEY = "OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7";
 
-const campgroundCacheData = {}
+const campgroundCacheData = {};
 
 export const LoadCampgroundData = () => {
   const [campgrounds, setCampgrounds] = useState([]);
@@ -25,7 +25,6 @@ export const LoadCampgroundData = () => {
           });
 
           setCampgrounds(response.data.data);
-
         } catch (error) {
           console.error(error);
         }

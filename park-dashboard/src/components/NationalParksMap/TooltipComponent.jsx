@@ -43,9 +43,9 @@ const TooltipComponent = ({ stateWiseNationalParks }) => {
                 <h1 style={{ fontSize: "16px" }} className="card-title">
                   Name: {name}
                 </h1>
-                <h2 style={{ fontSize: "15px" }} className="card-title">
+                <h3 style={{ fontSize: "15px" }} className="card-title">
                   City: {city}
-                </h2>
+                </h3>
                 <h3 style={{ fontSize: "14px" }} className="card-text">
                   Address: {address} - {city} {postCode}
                 </h3>

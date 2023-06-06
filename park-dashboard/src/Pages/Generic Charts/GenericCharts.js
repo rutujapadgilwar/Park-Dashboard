@@ -8,13 +8,13 @@ import StateVsParks from "../../Components/BarChartStateVsNationalPark/StateVsPa
 const GenericChart = () => {
   return (
     <div style={{ marginTop: "6rem" }}>
-      <h1 className="text-center" style={{ marginBottom: "5rem" }}>
+      <h1 className="text-center my-5 vis-title">
         Visualizations of all parks
       </h1>
-      <Container className="barchart" style={{ marginBottom: "5rem"}}>
+      <Container className="barchart" style={{ marginBottom: "5rem" }}>
         <Row>
-          <h2 style={{ fontSize: "18px" }} className="text-center">
-            Bar Chart: State Vs Park Counts
+          <h2 style={{ fontSize: "18px" }} className="text-center chart-title">
+            <span className="header">Bar Chart: State Vs Park Counts</span>
           </h2>
           <StateVsParks />
         </Row>
@@ -22,14 +22,16 @@ const GenericChart = () => {
       <Container>
         <Row>
           <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
-              Polar Area Chart: Park Designations
+            <h2 className="text-center my-5 chart-title">
+              <span className="header">
+                Polar Area Chart: Park Designations
+              </span>
             </h2>
             <DesignationPolarArea className="py-5 designations" />
           </Col>
           <Col>
-            <h2 style={{ fontSize: "18px" }} className="text-center">
-              Pie Chart: Campgrounds
+            <h2 className="text-center my-5 chart-title">
+              <span className="header">Pie Chart: Campgrounds</span>
             </h2>
             <CampgroundsChart className="py-5 campgrounds" />
           </Col>
