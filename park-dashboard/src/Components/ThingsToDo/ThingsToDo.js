@@ -29,7 +29,6 @@ function ThingsToDo(item) {
         <Box p={5}>
           <h4>Sorry, Not have any trail or things you can explore</h4>
         </Box>
-        ;
       </div>
     );
   }

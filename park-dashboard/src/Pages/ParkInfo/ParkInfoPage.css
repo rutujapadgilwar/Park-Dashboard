@@ -105,18 +105,25 @@ h2::first-letter {
 .alerts {
   overflow-y: scroll;
   max-height: 50vh;
-  width: 44vw;
+  width: 23vw;
   margin-left: 16px;
 }
 .weather-forecast {
   overflow-y: scroll;
   max-height: 50vh;
-  width: 54vw;
+  width: 46vw;
 }
-
+.air-quality {
+  width: 23vw;
+  margin-left: 32px;
+}
 @media only screen and (max-width: 700px) {
   .alerts,
-  .weather-forecast {
+  .weather-forecast,
+  .air-quality {
     width: 95vw;
+  }
+  .air-quality {
+    margin-left: 8px;
   }
 }
