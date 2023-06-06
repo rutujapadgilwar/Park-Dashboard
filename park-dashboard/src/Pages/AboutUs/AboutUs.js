@@ -46,7 +46,9 @@ function TeamMember({
 function TeamPage() {
   return (
     <div>
-      <h2 style={{ textAlign: "center", marginTop: "6rem" }}>Our Team</h2>
+      <h2 style={{ textAlign: "center", marginTop: "6rem" }}>
+        <span className="header">Our Team</span>
+      </h2>
       <Container>
         <Row>
           <TeamMember
