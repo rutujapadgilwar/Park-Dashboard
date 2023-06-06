@@ -140,6 +140,7 @@ function ActivitiesVsNP() {
       <Doughnut
         data={data}
         className={classes.padding}
+        style={{ height: "800px"}}
         options={options}
         id="my-Chart"
         ref={chartRef}
