@@ -50,6 +50,7 @@ const ParkInfoPage = () => {
           <h2 className="my-3">
             <span className="header">To-Do Activities</span>
           </h2>
+
           <div className="parkActivities">
             <ParkActivities parkCode={parkCode}></ParkActivities>
           </div>
@@ -58,6 +59,7 @@ const ParkInfoPage = () => {
           <h2 className="my-3">
             <span className="header">Things to explore</span>
           </h2>
+
           <div className="thingsTodo">
             <ThingsToDo parkCode={parkCode}></ThingsToDo>
           </div>
@@ -66,11 +68,13 @@ const ParkInfoPage = () => {
           <h2>
             <span className="header">Campgrounds and More</span>
           </h2>
+
           <div className="campground">
             <CampgroundInformation parkCode={parkCode}></CampgroundInformation>
           </div>
         </div>
       </div>
+
       <div class="info-container">
         <h2 className="text-center my-3">
           <span className="header">Standard Park Information</span>

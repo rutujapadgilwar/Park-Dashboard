@@ -81,6 +81,11 @@ const Navbar = () => {
                 {isLargeScreen ? "National Park Charts" : "Park Charts"}
               </Link>
             </Button>
+            <Button color="inherit" className={classes.navbarLink}>
+              <Link to="/AboutUs" className={classes.navbarButton}>
+                About Us
+              </Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </div>

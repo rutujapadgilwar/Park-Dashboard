@@ -6,6 +6,7 @@ import GenericChart from "./Pages/Generic Charts/GenericCharts";
 import NationalParkCharts from "./Pages/NationalParkCharts/NationalParkChartsPage";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             path="/parkInfoPage/:parkCode"
             element={<ParkInfoPage />}
           />
+          <Route exact path="/AboutUs" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>
