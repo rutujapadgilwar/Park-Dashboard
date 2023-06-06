@@ -37,7 +37,9 @@ const ParkInfoPage = () => {
         </div>
 
         <div className="ActivityHeading">
-          <h2>Air Quality</h2>
+          <h2 className="my-3">
+            <span className="header">Air Quality</span>
+          </h2>
           <div className="air-quality">
             <AirQuality parkCode={parkCode}></AirQuality>
           </div>
