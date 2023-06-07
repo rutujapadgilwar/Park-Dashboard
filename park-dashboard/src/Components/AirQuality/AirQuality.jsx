@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./AirQuality.css";
 import ReactSpeedometer from "react-d3-speedometer";
-
+import airQuality from "./AirQualityData";
 function AirQuality(props) {
   const [aqi, setAqi] = useState(0);
   const [condition, setCondition] = useState("No Data available");
@@ -64,49 +63,18 @@ function AirQuality(props) {
       };
     }
   };
-
-  const fetchAirQuality = (latitude, longitude) => {
-    axios
-      .get(
-        `https://api.api-ninjas.com/v1/airquality?lat=${latitude}&lon=${longitude}`,
-        {
-          headers: {
-            "X-Api-Key": "dOwjwEBWIUG+i0JD8MFslA==Fqr7PVBUnibAiqU3",
-          },
-        }
-      )
-      .then((res) => {
-        let aqi = res.data.overall_aqi;
-        setAqi(aqi);
-        const info = getAQIConditionDescriptionAndColor(aqi);
-        setColor(info.color);
-        setCondition(info.condition);
-        setDescription(info.description);
-      });
-  };
   useEffect(() => {
-    const fetchParkData = async () => {
-      try {
-        const response = await fetch(
-          `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=OaR7jmqSa22JAcsym9lVfStp58LmCqH9JdZUPEH7`
-        );
-        const data = await response.json();
-        const parkData = data.data;
-
-        if (parkData.length > 0) {
-          let aqi = 104;
-          setAqi(aqi);
-          const info = getAQIConditionDescriptionAndColor(aqi);
-          setColor(info.color);
-          setCondition(info.condition);
-          setDescription(info.description);
-        }
-      } catch (error) {
-        console.error("Error fetching park data:", error);
-      }
-    };
-    fetchParkData();
+    let airQualityIndex = airQuality[parkCode];
+    if (airQualityIndex === undefined) {
+      airQualityIndex = 47;
+    }
+    setAqi(airQualityIndex);
+    const info = getAQIConditionDescriptionAndColor(airQualityIndex);
+    setColor(info.color);
+    setCondition(info.condition);
+    setDescription(info.description);
   }, []);
+
   return (
     <div>
       <ReactSpeedometer
