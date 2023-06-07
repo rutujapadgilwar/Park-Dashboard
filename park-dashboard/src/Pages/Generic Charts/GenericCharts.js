@@ -7,41 +7,46 @@ import StateVsParks from "../../Components/BarChartStateVsNationalPark/StateVsPa
 import AlertsVsParks from "../../Components/Alerts3dPieChart/AlertsVsAllPark";
 const GenericChart = () => {
   return (
-    <div style={{ marginTop: "6rem" }}>
+    <div style={{ marginTop: "6rem" }} className="generic-charts">
       <h1 className="text-center my-5 vis-title">
         Visualizations of all parks
       </h1>
       <Container className="barchart" style={{ marginBottom: "5rem" }}>
         <Row>
-          <h2 style={{ fontSize: "24px" }} className="text-center">
-            Bar Chart: State Vs Park Counts
+          <h2 className="text-center my-5 chart-title">
+            <span className="header">Bar Chart: State Vs Park Counts</span>
           </h2>
+
           <StateVsParks />
         </Row>
       </Container>
-      <Container>
+      <Container className="polar-pie">
         <Row>
           <Col>
-            <h2 style={{ fontSize: "24px" }} className="text-center">
-              Polar Area Chart: Park Designations
+            <h2 className="text-center my-5 chart-title">
+              <span className="header">
+                Polar Area Chart: Park Designations
+              </span>
             </h2>
             <DesignationPolarArea className="py-5 designations" />
           </Col>
           <Col>
-            <h2 style={{ fontSize: "24px" }} className="text-center">
-              Pie Chart: Campgrounds
+            <h2 className="text-center my-5 chart-title">
+              <span className="header">Pie Chart: Campgrounds</span>
             </h2>
+
             <CampgroundsChart className="py-5 campgrounds" />
           </Col>
+          <Col>
+            <h2 className="text-center my-5 chart-title">
+              <span className="header">
+                3D Pie Chart: Alerts counts per category
+              </span>
+            </h2>
+
+            <AlertsVsParks />
+          </Col>
         </Row>
-      </Container>
-      <Container style={{ marginBottom: "5rem", marginTop: "18rem"}}>
-        <Col>
-          <h2 style={{ fontSize: "24px", marrginTop:"-70px" }} className="text-center">
-            3D Pie Chart: Alerts counts per category
-          </h2>
-          <AlertsVsParks />
-        </Col>
       </Container>
     </div>
   );

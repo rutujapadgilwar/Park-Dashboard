@@ -4,9 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="black-footer">
-      <p className="white-text">
-        Developed in 2023 by Shreya, Rutuja, Juhi.
-      </p>
+      <p className="white-text">Developed in 2023 by Shreya, Rutuja, Juhi.</p>
     </footer>
   );
 };

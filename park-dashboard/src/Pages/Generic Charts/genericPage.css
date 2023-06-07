@@ -29,3 +29,14 @@ chart-title::first-letter {
 .campgrounds {
   height: 400px;
 }
+
+@media (max-width: 800px) {
+  .generic-charts {
+    display: flex;
+    flex-direction: column;
+  }
+  .polar-pie {
+    display: flex;
+    flex-direction: column;
+  }
+}
