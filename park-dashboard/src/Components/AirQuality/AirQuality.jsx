@@ -94,7 +94,12 @@ function AirQuality(props) {
         const parkData = data.data;
 
         if (parkData.length > 0) {
-          fetchAirQuality(parkData[0].latitude, parkData[0].longitude);
+          let aqi = 104;
+          setAqi(aqi);
+          const info = getAQIConditionDescriptionAndColor(aqi);
+          setColor(info.color);
+          setCondition(info.condition);
+          setDescription(info.description);
         }
       } catch (error) {
         console.error("Error fetching park data:", error);
