@@ -16,7 +16,6 @@ function TeamMember({
   linkedIn,
   github,
 }) {
-  const emailUrl = `mailto:${email}`;
   return (
     <Col md={4} sm={6}>
       <Card className="sampleContainer">
@@ -33,7 +32,7 @@ function TeamMember({
 
           <SocialIcon url={linkedIn} style={{ marginRight: "10px" }} />
           <SocialIcon
-            url={emailUrl}
+            url={email}
             network="email"
             style={{ marginRight: "10px" }}
           />
